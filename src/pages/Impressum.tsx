@@ -1,8 +1,28 @@
 import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowLeft, Mail, MapPin, User, Globe, Phone } from 'lucide-react';
+import { ArrowLeft, Mail, MapPin, User, Globe } from 'lucide-react';
 import Navbar from '@/components/studio/Navbar';
 import Footer from '@/components/studio/Footer';
+
+interface RowProps {
+  icon: React.ReactNode;
+  label: string;
+  children: React.ReactNode;
+}
+
+const Row: React.FC<RowProps> = ({ icon, label, children }) => (
+  <div className="flex items-start gap-4">
+    <div className="w-9 h-9 shrink-0 rounded-lg bg-white border border-neutral-200 flex items-center justify-center text-neutral-700">
+      {icon}
+    </div>
+    <div>
+      <div className="text-xs font-medium text-neutral-500 uppercase tracking-wider mb-1">
+        {label}
+      </div>
+      <div className="text-base text-neutral-900">{children}</div>
+    </div>
+  </div>
+);
 
 const Impressum: React.FC = () => {
   useEffect(() => {
@@ -20,6 +40,7 @@ const Impressum: React.FC = () => {
           >
             <ArrowLeft size={16} /> Zurück zur Startseite
           </Link>
+
           <div className="text-xs font-semibold tracking-[0.2em] text-blue-600 uppercase mb-4">
             Rechtliches
           </div>
@@ -29,9 +50,10 @@ const Impressum: React.FC = () => {
 
           <div className="mt-12 space-y-8 text-[15px] text-neutral-700 leading-relaxed">
 
-            {/* Angaben gemäss TMG / ECG */}
             <div>
-              <h2 className="text-xl font-semibold text-neutral-900 mb-4">Angaben gemäss § 5 TMG / ECG</h2>
+              <h2 className="text-xl font-semibold text-neutral-900 mb-4">
+                Angaben gemäss § 5 TMG / ECG
+              </h2>
               <div className="p-8 rounded-3xl border border-neutral-200 bg-neutral-50/50 space-y-6">
                 <Row icon={<User size={16} />} label="Inhaber">
                   Demian Schläpfer
@@ -63,7 +85,6 @@ const Impressum: React.FC = () => {
               </div>
             </div>
 
-            {/* Haftungsausschluss */}
             <div>
               <h2 className="text-xl font-semibold text-neutral-900 mb-3">Haftungsausschluss</h2>
               <p>
@@ -74,7 +95,6 @@ const Impressum: React.FC = () => {
               </p>
             </div>
 
-            {/* Haftung für Links */}
             <div>
               <h2 className="text-xl font-semibold text-neutral-900 mb-3">Haftung für Links</h2>
               <p>
@@ -85,7 +105,6 @@ const Impressum: React.FC = () => {
               </p>
             </div>
 
-            {/* Urheberrecht */}
             <div>
               <h2 className="text-xl font-semibold text-neutral-900 mb-3">Urheberrecht</h2>
               <p>
@@ -97,7 +116,6 @@ const Impressum: React.FC = () => {
               </p>
             </div>
 
-            {/* Streitschlichtung */}
             <div>
               <h2 className="text-xl font-semibold text-neutral-900 mb-3">Streitschlichtung</h2>
               <p>
@@ -129,23 +147,5 @@ const Impressum: React.FC = () => {
     </div>
   );
 };
-
-const Row: React.FC<{
-  icon: React.ReactNode;
-  label: string;
-  children: React.ReactNode;
-}> = ({ icon, label, children }) => (
-  <div className="flex items-start gap-4">
-    <div className="w-9 h-9 shrink-0 rounded-lg bg-white border border-neutral-200 flex items-center justify-center text-neutral-700">
-      {icon}
-    </div>
-    <div>
-      <div className="text-xs font-medium text-neutral-500 uppercase tracking-wider mb-1">
-        {label}
-      </div>
-      <div className="text-base text-neutral-900">{children}</div>
-    </div>
-  </div>
-);
 
 export default Impressum;
