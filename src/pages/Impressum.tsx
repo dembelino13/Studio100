@@ -45,7 +45,7 @@ const Impressum: React.FC = () => {
                   Schweiz
                 </Row>
                 <Row icon={<Mail size={16} />} label="E-Mail">
-                  
+                  <a
                     href="mailto:schlaepfer.demian@gmail.com"
                     className="text-neutral-900 hover:underline"
                   >
@@ -53,7 +53,7 @@ const Impressum: React.FC = () => {
                   </a>
                 </Row>
                 <Row icon={<Globe size={16} />} label="Website">
-                  
+                  <a
                     href="https://www.studio-100.de"
                     className="text-neutral-900 hover:underline"
                   >
@@ -103,7 +103,7 @@ const Impressum: React.FC = () => {
               <p>
                 Die Europäische Kommission stellt eine Plattform zur Online-Streitbeilegung (OS)
                 bereit:{' '}
-                
+                <a
                   href="https://ec.europa.eu/consumers/odr"
                   target="_blank"
                   rel="noopener noreferrer"
