@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowLeft, Mail, MapPin, User } from 'lucide-react';
+import { ArrowLeft, Mail, MapPin, User, Globe, Phone } from 'lucide-react';
 import Navbar from '@/components/studio/Navbar';
 import Footer from '@/components/studio/Footer';
 
@@ -12,7 +12,6 @@ const Impressum: React.FC = () => {
   return (
     <div className="min-h-screen bg-white text-neutral-900 flex flex-col">
       <Navbar />
-
       <main className="flex-1 pt-32 lg:pt-40 pb-24">
         <div className="max-w-3xl mx-auto px-6 lg:px-10">
           <Link
@@ -21,7 +20,6 @@ const Impressum: React.FC = () => {
           >
             <ArrowLeft size={16} /> Zurück zur Startseite
           </Link>
-
           <div className="text-xs font-semibold tracking-[0.2em] text-blue-600 uppercase mb-4">
             Rechtliches
           </div>
@@ -29,32 +27,95 @@ const Impressum: React.FC = () => {
             Impressum
           </h1>
 
-          <div className="mt-12 p-8 lg:p-10 rounded-3xl border border-neutral-200 bg-neutral-50/50 space-y-6">
-            <Row icon={<User size={16} />} label="Inhaber">
-              Demian Schläpfer
-            </Row>
-            <Row icon={<span className="font-bold text-sm">S</span>} label="Firma">
-              Studio100
-            </Row>
-            <Row icon={<Mail size={16} />} label="E-Mail">
-              <a
-                href="mailto:schlaepfer.demian@gmail.com"
-                className="text-neutral-900 hover:underline"
-              >
-                schlaepfer.demian@gmail.com
-              </a>
-            </Row>
-            <Row icon={<MapPin size={16} />} label="Standort">
-              Schweiz
-            </Row>
-          </div>
+          <div className="mt-12 space-y-8 text-[15px] text-neutral-700 leading-relaxed">
 
-          <div className="mt-10 p-6 rounded-2xl bg-amber-50 border border-amber-100">
-            <p className="text-sm text-neutral-700 leading-relaxed">
-              <strong className="text-neutral-900">Hinweis:</strong> Dies ist ein
-              vorläufiges Impressum. Rechtliche Angaben müssen bei Bedarf final
-              geprüft und ergänzt werden.
-            </p>
+            {/* Angaben gemäss TMG / ECG */}
+            <div>
+              <h2 className="text-xl font-semibold text-neutral-900 mb-4">Angaben gemäss § 5 TMG / ECG</h2>
+              <div className="p-8 rounded-3xl border border-neutral-200 bg-neutral-50/50 space-y-6">
+                <Row icon={<User size={16} />} label="Inhaber">
+                  Demian Schläpfer
+                </Row>
+                <Row icon={<span className="font-bold text-sm">S</span>} label="Firma">
+                  Studio100
+                </Row>
+                <Row icon={<MapPin size={16} />} label="Adresse">
+                  [Strasse wird ergänzt]<br />
+                  6300 Zug<br />
+                  Schweiz
+                </Row>
+                <Row icon={<Mail size={16} />} label="E-Mail">
+                  
+                    href="mailto:schlaepfer.demian@gmail.com"
+                    className="text-neutral-900 hover:underline"
+                  >
+                    schlaepfer.demian@gmail.com
+                  </a>
+                </Row>
+                <Row icon={<Globe size={16} />} label="Website">
+                  
+                    href="https://www.studio-100.de"
+                    className="text-neutral-900 hover:underline"
+                  >
+                    www.studio-100.de
+                  </a>
+                </Row>
+              </div>
+            </div>
+
+            {/* Haftungsausschluss */}
+            <div>
+              <h2 className="text-xl font-semibold text-neutral-900 mb-3">Haftungsausschluss</h2>
+              <p>
+                Die Inhalte dieser Website wurden mit grösstmöglicher Sorgfalt erstellt. Für die
+                Richtigkeit, Vollständigkeit und Aktualität der Inhalte können wir jedoch keine
+                Gewähr übernehmen. Als Diensteanbieter sind wir gemäss § 7 Abs. 1 TMG für eigene
+                Inhalte auf diesen Seiten nach den allgemeinen Gesetzen verantwortlich.
+              </p>
+            </div>
+
+            {/* Haftung für Links */}
+            <div>
+              <h2 className="text-xl font-semibold text-neutral-900 mb-3">Haftung für Links</h2>
+              <p>
+                Unser Angebot enthält Links zu externen Websites Dritter, auf deren Inhalte wir
+                keinen Einfluss haben. Deshalb können wir für diese fremden Inhalte auch keine
+                Gewähr übernehmen. Für die Inhalte der verlinkten Seiten ist stets der jeweilige
+                Anbieter oder Betreiber der Seiten verantwortlich.
+              </p>
+            </div>
+
+            {/* Urheberrecht */}
+            <div>
+              <h2 className="text-xl font-semibold text-neutral-900 mb-3">Urheberrecht</h2>
+              <p>
+                Die durch die Seitenbetreiber erstellten Inhalte und Werke auf diesen Seiten
+                unterliegen dem deutschen und schweizerischen Urheberrecht. Die Vervielfältigung,
+                Bearbeitung, Verbreitung und jede Art der Verwertung ausserhalb der Grenzen des
+                Urheberrechtes bedürfen der schriftlichen Zustimmung des jeweiligen Autors bzw.
+                Erstellers.
+              </p>
+            </div>
+
+            {/* Streitschlichtung */}
+            <div>
+              <h2 className="text-xl font-semibold text-neutral-900 mb-3">Streitschlichtung</h2>
+              <p>
+                Die Europäische Kommission stellt eine Plattform zur Online-Streitbeilegung (OS)
+                bereit:{' '}
+                
+                  href="https://ec.europa.eu/consumers/odr"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="underline hover:no-underline"
+                >
+                  https://ec.europa.eu/consumers/odr
+                </a>
+                . Wir sind nicht bereit oder verpflichtet, an Streitbeilegungsverfahren vor einer
+                Verbraucherschlichtungsstelle teilzunehmen.
+              </p>
+            </div>
+
           </div>
 
           <div className="mt-10 text-sm text-neutral-500">
@@ -64,7 +125,6 @@ const Impressum: React.FC = () => {
           </div>
         </div>
       </main>
-
       <Footer />
     </div>
   );
