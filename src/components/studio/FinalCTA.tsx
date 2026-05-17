@@ -1,13 +1,15 @@
 import React, { useState } from 'react';
 import { ArrowRight, Loader2, Check } from 'lucide-react';
 
+const BUDGET_OPTIONS = ['3.000 CHF', '6.500 CHF', '10.000 CHF+'];
+
 const FinalCTA: React.FC = () => {
-  const [form, setForm] = useState({ name: '', email: '', company: '', message: '' });
+  const [form, setForm] = useState({ name: '', email: '', company: '', phone: '', website: '', message: '', budget: '', startzeit: '' });
   const [loading, setLoading] = useState(false);
   const [success, setSuccess] = useState(false);
   const [error, setError] = useState('');
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     setForm({ ...form, [e.target.name]: e.target.value });
   };
 
@@ -23,18 +25,11 @@ const FinalCTA: React.FC = () => {
       const response = await fetch('/api/send', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          name: form.name,
-          email: form.email,
-          company: form.company,
-          message: form.message,
-        }),
+        body: JSON.stringify(form),
       });
-
       if (!response.ok) throw new Error('Send failed');
-
       setSuccess(true);
-      setForm({ name: '', email: '', company: '', message: '' });
+      setForm({ name: '', email: '', company: '', phone: '', website: '', message: '', budget: '', startzeit: '' });
     } catch {
       setError('Etwas ist schiefgelaufen. Bitte erneut versuchen.');
     } finally {
@@ -59,7 +54,6 @@ const FinalCTA: React.FC = () => {
               Erzählen Sie uns kurz von Ihrem Vorhaben. Wir melden uns innerhalb von 24 Stunden mit
               einer ehrlichen Einschätzung.
             </p>
-
             <div className="mt-12 space-y-4 text-sm text-neutral-300">
               <div className="flex items-center gap-3">
                 <div className="w-8 h-8 rounded-full bg-white/5 border border-white/10 flex items-center justify-center">
@@ -101,75 +95,89 @@ const FinalCTA: React.FC = () => {
                 <div className="space-y-5">
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div>
-                      <label className="text-xs font-medium text-neutral-400 uppercase tracking-wider mb-2 block">
-                        Name
-                      </label>
-                      <input
-                        name="name"
-                        value={form.name}
-                        onChange={handleChange}
-                        placeholder="Ihr Name"
-                        className="w-full px-4 py-3.5 rounded-xl bg-neutral-950 border border-neutral-800 text-white placeholder:text-neutral-600 focus:outline-none focus:border-neutral-600 transition"
-                      />
+                      <label className="text-xs font-medium text-neutral-400 uppercase tracking-wider mb-2 block">Name</label>
+                      <input name="name" value={form.name} onChange={handleChange} placeholder="Ihr Name"
+                        className="w-full px-4 py-3.5 rounded-xl bg-neutral-950 border border-neutral-800 text-white placeholder:text-neutral-600 focus:outline-none focus:border-neutral-600 transition" />
                     </div>
                     <div>
-                      <label className="text-xs font-medium text-neutral-400 uppercase tracking-wider mb-2 block">
-                        Unternehmen
-                      </label>
-                      <input
-                        name="company"
-                        value={form.company}
-                        onChange={handleChange}
-                        placeholder="Firma GmbH"
-                        className="w-full px-4 py-3.5 rounded-xl bg-neutral-950 border border-neutral-800 text-white placeholder:text-neutral-600 focus:outline-none focus:border-neutral-600 transition"
-                      />
+                      <label className="text-xs font-medium text-neutral-400 uppercase tracking-wider mb-2 block">Unternehmen</label>
+                      <input name="company" value={form.company} onChange={handleChange} placeholder="Firma GmbH"
+                        className="w-full px-4 py-3.5 rounded-xl bg-neutral-950 border border-neutral-800 text-white placeholder:text-neutral-600 focus:outline-none focus:border-neutral-600 transition" />
                     </div>
                   </div>
                   <div>
-                    <label className="text-xs font-medium text-neutral-400 uppercase tracking-wider mb-2 block">
-                      E-Mail
-                    </label>
-                    <input
-                      name="email"
-                      type="email"
-                      value={form.email}
-                      onChange={handleChange}
-                      placeholder="name@unternehmen.de"
-                      className="w-full px-4 py-3.5 rounded-xl bg-neutral-950 border border-neutral-800 text-white placeholder:text-neutral-600 focus:outline-none focus:border-neutral-600 transition"
-                    />
+                    <label className="text-xs font-medium text-neutral-400 uppercase tracking-wider mb-2 block">E-Mail</label>
+                    <input name="email" type="email" value={form.email} onChange={handleChange} placeholder="name@unternehmen.ch"
+                      className="w-full px-4 py-3.5 rounded-xl bg-neutral-950 border border-neutral-800 text-white placeholder:text-neutral-600 focus:outline-none focus:border-neutral-600 transition" />
                   </div>
                   <div>
-                    <label className="text-xs font-medium text-neutral-400 uppercase tracking-wider mb-2 block">
-                      Worum geht's?
-                    </label>
-                    <textarea
-                      name="message"
-                      value={form.message}
-                      onChange={handleChange}
-                      rows={4}
+                    <label className="text-xs font-medium text-neutral-400 uppercase tracking-wider mb-2 block">Telefonnummer</label>
+                    <input name="phone" type="tel" value={form.phone} onChange={handleChange} placeholder="+41 79 000 00 00"
+                      className="w-full px-4 py-3.5 rounded-xl bg-neutral-950 border border-neutral-800 text-white placeholder:text-neutral-600 focus:outline-none focus:border-neutral-600 transition" />
+                  </div>
+                  <div>
+                    <label className="text-xs font-medium text-neutral-400 uppercase tracking-wider mb-2 block">Website-Link</label>
+                    <input name="website" type="url" value={form.website} onChange={handleChange} placeholder="https://ihre-website.ch"
+                      className="w-full px-4 py-3.5 rounded-xl bg-neutral-950 border border-neutral-800 text-white placeholder:text-neutral-600 focus:outline-none focus:border-neutral-600 transition" />
+                  </div>
+                  <div>
+                    <label className="text-xs font-medium text-neutral-400 uppercase tracking-wider mb-2 block">Projektbeschreibung</label>
+                    <textarea name="message" value={form.message} onChange={handleChange} rows={4}
                       placeholder="Erzählen Sie uns kurz von Ihrem Vorhaben..."
-                      className="w-full px-4 py-3.5 rounded-xl bg-neutral-950 border border-neutral-800 text-white placeholder:text-neutral-600 focus:outline-none focus:border-neutral-600 transition resize-none"
-                    />
+                      className="w-full px-4 py-3.5 rounded-xl bg-neutral-950 border border-neutral-800 text-white placeholder:text-neutral-600 focus:outline-none focus:border-neutral-600 transition resize-none" />
+                  </div>
+
+                  {/* Budget */}
+                  <div>
+                    <label className="text-xs font-medium text-neutral-400 uppercase tracking-wider mb-3 block">Budget</label>
+                    <div className="grid grid-cols-3 gap-2">
+                      {BUDGET_OPTIONS.map((option) => (
+                        <button
+                          key={option}
+                          type="button"
+                          onClick={() => setForm({ ...form, budget: option })}
+                          className={`py-3 rounded-xl text-sm font-medium transition-all ${
+                            form.budget === option
+                              ? 'bg-white text-neutral-900'
+                              : 'bg-neutral-950 border border-neutral-800 text-white hover:border-neutral-600'
+                          }`}
+                        >
+                          {option}
+                        </button>
+                      ))}
+                    </div>
+                  </div>
+
+                  {/* Startzeitpunkt */}
+                  <div>
+                    <label className="text-xs font-medium text-neutral-400 uppercase tracking-wider mb-2 block">Gewünschter Startzeitpunkt</label>
+                    <select name="startzeit" value={form.startzeit} onChange={handleChange}
+                      className="w-full px-4 py-3.5 rounded-xl bg-neutral-950 border border-neutral-800 text-white focus:outline-none focus:border-neutral-600 transition appearance-none">
+                      <option value="">Bitte auswählen</option>
+                      <option value="sofort">Sofort</option>
+                      <option value="1-2 Monate">In 1–2 Monaten</option>
+                      <option value="3+ Monate">In 3+ Monaten</option>
+                    </select>
                   </div>
 
                   {error && <div className="text-sm text-red-400">{error}</div>}
 
-                  <button
-                    type="submit"
-                    disabled={loading}
-                    className="group w-full inline-flex items-center justify-center gap-2 px-7 py-4 rounded-xl bg-white text-neutral-900 text-sm font-medium hover:bg-neutral-200 transition-all disabled:opacity-60"
-                  >
+                  <button type="submit" disabled={loading}
+                    className="group w-full inline-flex items-center justify-center gap-2 px-7 py-4 rounded-xl bg-white text-neutral-900 text-sm font-medium hover:bg-neutral-200 transition-all disabled:opacity-60">
                     {loading ? (
-                      <>
-                        <Loader2 size={16} className="animate-spin" /> Wird gesendet...
-                      </>
+                      <><Loader2 size={16} className="animate-spin" /> Wird gesendet...</>
                     ) : (
-                      <>
-                        Projekt starten
-                        <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
-                      </>
+                      <>Projekt starten <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" /></>
                     )}
                   </button>
+
+                  <p className="text-xs text-neutral-500 text-center">
+                    Mit dem Absenden stimmst du unseren{' '}
+                    <a href="/datenschutz" className="text-neutral-400 underline hover:text-white transition">
+                      Datenschutzbestimmungen
+                    </a>{' '}
+                    zu.
+                  </p>
                 </div>
               )}
             </form>
