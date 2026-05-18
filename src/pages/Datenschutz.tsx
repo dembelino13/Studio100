@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { ArrowLeft, ShieldCheck } from 'lucide-react';
 import Navbar from '@/components/studio/Navbar';
 import Footer from '@/components/studio/Footer';
+import SEO from '@/components/SEO';
 
 const Datenschutz: React.FC = () => {
   useEffect(() => {
@@ -11,6 +12,12 @@ const Datenschutz: React.FC = () => {
 
   return (
     <div className="min-h-screen bg-white text-neutral-900 flex flex-col">
+      <SEO
+        title="Datenschutzerklärung | Studio100 Webdesign"
+        description="Datenschutzerklärung von Studio100 – Informationen zur Verarbeitung Ihrer personenbezogenen Daten gemäss DSGVO und dem schweizerischen Datenschutzgesetz (revDSG)."
+        canonical="/datenschutz"
+        noindex={true}
+      />
       <Navbar />
       <main className="flex-1 pt-32 lg:pt-40 pb-24">
         <div className="max-w-3xl mx-auto px-6 lg:px-10">

@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { ArrowLeft, Mail, MapPin, User, Globe } from 'lucide-react';
 import Navbar from '@/components/studio/Navbar';
 import Footer from '@/components/studio/Footer';
+import SEO from '@/components/SEO';
 
 interface RowProps {
   icon: React.ReactNode;
@@ -31,6 +32,12 @@ const Impressum: React.FC = () => {
 
   return (
     <div className="min-h-screen bg-white text-neutral-900 flex flex-col">
+      <SEO
+        title="Impressum | Studio100 Webdesign"
+        description="Impressum von Studio100 – Rosiello Solutions GmbH, Gotthardstrasse 14, 6300 Zug, Schweiz. Rechtliche Angaben gemäss § 5 TMG und ECG."
+        canonical="/impressum"
+        noindex={true}
+      />
       <Navbar />
       <main className="flex-1 pt-32 lg:pt-40 pb-24">
         <div className="max-w-3xl mx-auto px-6 lg:px-10">

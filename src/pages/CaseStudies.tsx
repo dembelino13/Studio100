@@ -5,6 +5,7 @@ import Navbar from '@/components/studio/Navbar';
 import Footer from '@/components/studio/Footer';
 import CaseStudyCard from '@/components/studio/CaseStudyCard';
 import { caseStudies, industries, type Industry } from '@/data/caseStudies';
+import SEO from '@/components/SEO';
 
 const CaseStudiesPage: React.FC = () => {
   const [filter, setFilter] = useState<Industry | 'Alle'>('Alle');
@@ -34,6 +35,11 @@ const CaseStudiesPage: React.FC = () => {
 
   return (
     <div className="min-h-screen bg-white text-neutral-900 font-sans antialiased selection:bg-neutral-900 selection:text-white">
+      <SEO
+        title="Kundenprojekte & Fallstudien | Studio100 Webdesign"
+        description="Echte Ergebnisse für KMUs in der DACH-Region: Wie Studio100 mit strategischem Webdesign die Conversion-Rate und den Umsatz seiner Kunden messbar steigert."
+        canonical="/case-studies"
+      />
       <Navbar />
 
       {/* Hero */}
