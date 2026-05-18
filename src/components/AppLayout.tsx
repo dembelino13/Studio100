@@ -9,6 +9,7 @@ import OfferSection from './studio/OfferSection';
 import GuaranteeSection from './studio/GuaranteeSection';
 import AnalysisSection from './studio/AnalysisSection';
 import TestimonialsSection from './studio/TestimonialsSection';
+import FAQSection from './studio/FAQSection';
 import FinalCTA from './studio/FinalCTA';
 import Footer from './studio/Footer';
 import CookieBanner from './studio/CookieBanner';
@@ -27,6 +28,7 @@ const AppLayout: React.FC = () => {
         <GuaranteeSection />
         <AnalysisSection />
         <TestimonialsSection />
+        <FAQSection />
         <FinalCTA />
       </main>
       <Footer />

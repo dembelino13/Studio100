@@ -76,6 +76,14 @@ const Navbar: React.FC = () => {
           >
             Case Studies
           </Link>
+          <Link
+            to="/blog"
+            className={`hover:text-neutral-900 transition ${
+              location.pathname.startsWith('/blog') ? 'text-neutral-900' : ''
+            }`}
+          >
+            Blog
+          </Link>
           <button onClick={() => goToSection('offer')} className="hover:text-neutral-900 transition">
             Angebot
           </button>
@@ -108,6 +116,9 @@ const Navbar: React.FC = () => {
           </button>
           <Link to="/case-studies" onClick={() => setOpen(false)} className="text-left">
             Case Studies
+          </Link>
+          <Link to="/blog" onClick={() => setOpen(false)} className="text-left">
+            Blog
           </Link>
           <button onClick={() => goToSection('offer')} className="text-left">
             Angebot
