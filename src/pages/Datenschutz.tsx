@@ -40,8 +40,8 @@ const Datenschutz: React.FC = () => {
                 Datenschutzgesetzes (revDSG) und der europäischen Datenschutz-Grundverordnung (DSGVO):
               </p>
               <div className="mt-3 p-4 rounded-xl bg-neutral-50 border border-neutral-200">
-                <p className="font-medium text-neutral-900">Studio100</p>
-                <p>Adresse: [wird ergänzt], Zug, Schweiz</p>
+                <p className="font-medium text-neutral-900">Rosiello Solutions GmbH</p>
+                <p>Adresse: Gotthardstrasse 14, 6300 Zug, Schweiz</p>
                 <p>E-Mail: <a href="mailto:schlaepfer.demian@gmail.com" className="underline hover:no-underline">schlaepfer.demian@gmail.com</a></p>
                 <p>Website: <a href="https://www.studio-100.de" className="underline hover:no-underline">www.studio-100.de</a></p>
               </div>

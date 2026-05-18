@@ -56,13 +56,13 @@ const Impressum: React.FC = () => {
               </h2>
               <div className="p-8 rounded-3xl border border-neutral-200 bg-neutral-50/50 space-y-6">
                 <Row icon={<User size={16} />} label="Inhaber">
-                  Demian Schläpfer
+                  Rosiello Solutions GmbH
                 </Row>
                 <Row icon={<span className="font-bold text-sm">S</span>} label="Firma">
                   Studio100
                 </Row>
                 <Row icon={<MapPin size={16} />} label="Adresse">
-                  [Strasse wird ergänzt]<br />
+                  Gotthardstrasse 14<br />
                   6300 Zug<br />
                   Schweiz
                 </Row>
