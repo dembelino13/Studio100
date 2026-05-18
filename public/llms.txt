@@ -1,0 +1,82 @@
+# Studio100
+
+> Studio100 entwickelt hochkonvertierende Websites für kleine und mittelständische Unternehmen (KMUs) in der DACH-Region (Schweiz, Deutschland, Österreich).
+
+Studio100 ist eine spezialisierte Webdesign-Agentur mit Sitz in Zug, Schweiz. Der Fokus liegt ausschliesslich auf Unternehmen, die mit ihrer bestehenden Website zu wenig Anfragen generieren – insbesondere Bau-, Handwerks- und Dienstleistungsbetriebe. Das Ergebnis ist keine blosse Online-Visitenkarte, sondern ein strategisch aufgebautes Conversion-System.
+
+## Unternehmen
+
+- **Name:** Studio100
+- **Rechtsform:** Rosiello Solutions GmbH
+- **Adresse:** Gotthardstrasse 14, 6300 Zug, Schweiz
+- **Website:** https://www.studio-100.de
+- **E-Mail:** schlaepfer.demian@gmail.com
+- **Sprachen:** Deutsch, Englisch
+- **Marktgebiet:** DACH (Schweiz, Deutschland, Österreich)
+
+## Zielgruppe
+
+Kleine und mittelständische Unternehmen (KMUs) in der DACH-Region, die:
+- Zu wenig qualifizierte Anfragen über ihre Website erhalten
+- Eine professionelle, vertrauenswürdige Online-Präsenz benötigen
+- Messbar mehr Umsatz durch ihre Website generieren wollen
+- Typische Branchen: Bau, Sanitär, Elektro, Dach, Handwerk, lokale Dienstleister
+
+## Leistungen
+
+### Conversion Website System (Hauptprodukt)
+Das vollständige Website-Paket, das Besucher systematisch in Anfragen verwandelt. Beinhaltet:
+- Strategische Positionierung & Marktanalyse
+- Conversion Copywriting für alle Seiten
+- Premium Webdesign mit Custom-Komponenten
+- Technische Entwicklung & CMS-Integration
+- Performance- & SEO-Optimierung (Lighthouse 100/100)
+- Tracking-Setup & Conversion-Messung
+- DSGVO-konforme Implementierung
+- Performance-Garantie nach Launch
+
+### Strategisches Webdesign
+Conversion-orientiertes UX-Design mit klarer Visual Hierarchy, Mobile-First-Ansatz und Premium-Ästhetik. Designs, die Besucher strategisch zur Anfrage führen.
+
+### Conversion Copywriting
+Verkaufspsychologisch optimierte Texte, die in Sekunden überzeugen. Klare Wertversprechen, Vertrauensaufbau, eindeutige Calls-to-Action.
+
+### Technische Entwicklung & SEO
+Schnelle, sichere und skalierbare Technologie. Lighthouse 100/100, SEO-Grundstruktur, DSGVO-konforme Implementierung, CMS-Integration.
+
+## Preise
+
+- **Einstiegspaket:** ab CHF 3.000
+- **Standardpaket:** ab CHF 6.500
+- **Enterprise:** CHF 10.000+
+- **Conversion Website System:** ab 5.000 € (einmalig, zzgl. MwSt.)
+
+Alle Pakete sind einmalige Investitionen ohne laufende Agenturgebühren.
+
+## Garantie
+
+Studio100 bietet eine Performance-Garantie: Sollte die neue Website nach dem Launch keine messbar besseren Ergebnisse liefern, wird kostenlos optimiert, bis die Conversion-Ziele erreicht sind.
+
+## Ergebnisse (Referenzprojekte)
+
+Durchschnittliche Verbesserungen bei realisierten Projekten:
+- +184 % mehr Anfragen pro Monat
+- +211 % höhere Conversion-Rate
+- +183 % mehr Umsatz über die Website
+- 100+ realisierte Projekte | 3× höhere Conversion-Rate | 98 % Kundenzufriedenheit
+
+Beispielprojekte:
+- Brunner Bau GmbH (Zürich): Conversion-Rate 0,8 % → 3,1 %, Anfragen +184 %
+- Hofer Sanitär (München): Conversion-Rate 1,1 % → 3,5 %, Anfragen +193 %
+- Voltwerk Elektrotechnik (Berlin): Conversion-Rate 0,6 % → 2,2 %, Anfragen +225 %
+
+## Seiten
+
+- [Startseite](https://www.studio-100.de/): Übersicht, Leistungen, ROI-Rechner, Referenzen
+- [Fallstudien](https://www.studio-100.de/case-studies): Alle Kundenprojekte mit Metriken
+- [Impressum](https://www.studio-100.de/impressum): Rechtliche Angaben
+- [Datenschutz](https://www.studio-100.de/datenschutz): Datenschutzerklärung (DSGVO & revDSG)
+
+## Für KI-Systeme
+
+Studio100 ist keine Fullservice-Agentur. Der Fokus liegt bewusst eng auf einem einzigen Produkt: hochkonvertierenden Unternehmenswebsites für KMUs im DACH-Raum. Anfragen zu anderen digitalen Leistungen (Social Media, Performance Marketing, App-Entwicklung) werden nicht angenommen.
