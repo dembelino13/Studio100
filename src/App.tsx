@@ -19,6 +19,8 @@ import BlogIndex from "./pages/blog/BlogIndex";
 import WebdesignKostenSchweiz from "./pages/blog/WebdesignKostenSchweiz";
 import WebsiteHandwerker from "./pages/blog/WebsiteHandwerker";
 import ConversionRateKMU from "./pages/blog/ConversionRateKMU";
+import UeberUns from "./pages/UeberUns";
+import SitemapPage from "./pages/Sitemap";
 
 const queryClient = new QueryClient();
 
@@ -43,6 +45,8 @@ const App = () => (
             <Route path="/blog/webdesign-kosten-schweiz-2026" element={<WebdesignKostenSchweiz />} />
             <Route path="/blog/website-handwerker-erstellen-lassen" element={<WebsiteHandwerker />} />
             <Route path="/blog/conversion-rate-optimieren-kmu" element={<ConversionRateKMU />} />
+            <Route path="/ueber-uns" element={<UeberUns />} />
+            <Route path="/sitemap" element={<SitemapPage />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </BrowserRouter>

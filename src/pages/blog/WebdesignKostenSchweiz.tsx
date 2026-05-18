@@ -167,6 +167,31 @@ const WebdesignKostenSchweiz: React.FC = () => {
         </article>
 
         {/* CTA */}
+        {/* Internal links */}
+        <section className="py-12 bg-white border-t border-neutral-100">
+          <div className="max-w-3xl mx-auto px-6 lg:px-10">
+            <div className="text-xs font-semibold tracking-[0.2em] text-neutral-400 uppercase mb-5">
+              Passende Leistungen & Artikel
+            </div>
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+              {[
+                { label: 'Webdesign für KMU', href: '/webdesign-kmu', desc: 'Unsere Leistung' },
+                { label: 'Website für Handwerker', href: '/blog/website-handwerker-erstellen-lassen', desc: 'Blog-Artikel' },
+                { label: 'Conversion Rate optimieren', href: '/blog/conversion-rate-optimieren-kmu', desc: 'Blog-Artikel' },
+              ].map((item) => (
+                <Link
+                  key={item.href}
+                  to={item.href}
+                  className="group p-4 rounded-2xl border border-neutral-200 hover:border-neutral-900 hover:bg-neutral-50 transition-all"
+                >
+                  <div className="text-[10px] font-semibold text-blue-600 uppercase tracking-wider mb-1">{item.desc}</div>
+                  <div className="text-sm font-medium text-neutral-900 group-hover:text-blue-600 transition-colors">{item.label}</div>
+                </Link>
+              ))}
+            </div>
+          </div>
+        </section>
+
         <section className="py-20 lg:py-24 bg-neutral-900 text-white">
           <div className="max-w-3xl mx-auto px-6 lg:px-10 text-center">
             <h2 className="text-3xl lg:text-4xl font-semibold tracking-tight">

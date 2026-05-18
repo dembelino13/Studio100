@@ -36,21 +36,17 @@ const Footer: React.FC = () => {
 
           <div className="md:col-span-2">
             <div className="text-xs font-semibold uppercase tracking-wider text-white mb-5">
-              Navigation
+              Seiten
             </div>
             <ul className="space-y-3 text-sm">
               <li>
-                <button
-                  onClick={() => document.getElementById('services')?.scrollIntoView({ behavior: 'smooth' })}
-                  className="hover:text-white transition"
-                >
-                  Leistungen
-                </button>
+                <Link to="/case-studies" className="hover:text-white transition">Case Studies</Link>
               </li>
               <li>
-                <Link to="/case-studies" className="hover:text-white transition">
-                  Case Studies
-                </Link>
+                <Link to="/blog" className="hover:text-white transition">Blog</Link>
+              </li>
+              <li>
+                <Link to="/ueber-uns" className="hover:text-white transition">Über uns</Link>
               </li>
               <li>
                 <button
@@ -60,35 +56,30 @@ const Footer: React.FC = () => {
                   Angebot
                 </button>
               </li>
-              <li>
-                <button
-                  onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
-                  className="hover:text-white transition"
-                >
-                  Kontakt
-                </button>
-              </li>
             </ul>
           </div>
 
-
           <div className="md:col-span-2">
             <div className="text-xs font-semibold uppercase tracking-wider text-white mb-5">
-              Rechtliches
+              Leistungen
             </div>
             <ul className="space-y-3 text-sm">
               <li>
-                <Link to="/datenschutz" className="hover:text-white transition">
-                  Datenschutz
-                </Link>
+                <Link to="/webdesign-kmu" className="hover:text-white transition">Webdesign KMU</Link>
               </li>
               <li>
-                <Link to="/impressum" className="hover:text-white transition">
-                  Impressum
-                </Link>
+                <Link to="/landing-page" className="hover:text-white transition">Landing Pages</Link>
+              </li>
+              <li>
+                <Link to="/conversion-optimierung" className="hover:text-white transition">Conversion-Optimierung</Link>
+              </li>
+              <li>
+                <Link to="/datenschutz" className="hover:text-white transition">Datenschutz</Link>
+              </li>
+              <li>
+                <Link to="/impressum" className="hover:text-white transition">Impressum</Link>
               </li>
             </ul>
-
           </div>
         </div>
 

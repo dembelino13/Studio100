@@ -179,6 +179,30 @@ const LandingPage: React.FC = () => {
           </div>
         </section>
 
+        {/* Related articles */}
+        <section className="py-16 bg-white border-t border-neutral-100">
+          <div className="max-w-7xl mx-auto px-6 lg:px-10">
+            <div className="text-xs font-semibold tracking-[0.2em] text-neutral-400 uppercase mb-6">
+              Weiterführende Artikel
+            </div>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 max-w-2xl">
+              {[
+                { label: 'Conversion Rate optimieren für KMUs', href: '/blog/conversion-rate-optimieren-kmu', desc: '7 bewährte Strategien für mehr Anfragen' },
+                { label: 'Webdesign für KMU in der DACH-Region', href: '/webdesign-kmu', desc: 'Vollständige Website statt einzelner Landing Page' },
+              ].map((item) => (
+                <Link
+                  key={item.href}
+                  to={item.href}
+                  className="group p-5 rounded-2xl border border-neutral-200 hover:border-neutral-900 hover:bg-neutral-50 transition-all"
+                >
+                  <div className="text-sm font-medium text-neutral-900 group-hover:text-blue-600 transition-colors mb-1">{item.label}</div>
+                  <div className="text-xs text-neutral-500">{item.desc}</div>
+                </Link>
+              ))}
+            </div>
+          </div>
+        </section>
+
         {/* CTA */}
         <section className="py-24 lg:py-32 bg-neutral-900 text-white">
           <div className="max-w-3xl mx-auto px-6 lg:px-10 text-center">

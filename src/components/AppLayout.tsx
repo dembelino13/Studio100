@@ -1,6 +1,7 @@
 import React from 'react';
 import Navbar from './studio/Navbar';
 import Hero from './studio/Hero';
+import TrustBanner from './studio/TrustBanner';
 import ProblemSection from './studio/ProblemSection';
 import ROICalculator from './studio/ROICalculator';
 import PositioningSection from './studio/PositioningSection';
@@ -20,6 +21,7 @@ const AppLayout: React.FC = () => {
       <Navbar />
       <main>
         <Hero />
+        <TrustBanner />
         <ProblemSection />
         <ROICalculator />
         <PositioningSection />
