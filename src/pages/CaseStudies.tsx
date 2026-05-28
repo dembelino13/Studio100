@@ -1,185 +1,205 @@
-import React from 'react';
-import { TrendingUp, ExternalLink } from 'lucide-react';
-import type { CaseStudy } from '@/data/caseStudies';
+import React, { useState, useMemo } from 'react';
+import { Link } from 'react-router-dom';
+import { ArrowLeft, ArrowRight, Sparkles } from 'lucide-react';
+import Navbar from '@/components/studio/Navbar';
+import Footer from '@/components/studio/Footer';
+import CaseStudyCard from '@/components/studio/CaseStudyCard';
+import { caseStudies, industries } from '@/data/caseStudies';
+import SEO from '@/components/SEO';
 
-interface Props {
-  study: CaseStudy;
-  index: number;
-}
+const CaseStudiesPage: React.FC = () => {
+  const [filter, setFilter] = useState<string>('Alle');
 
-const CaseStudyCard: React.FC<Props> = ({ study, index }) => {
+  const filtered = useMemo(() => {
+    if (filter === 'Alle') return caseStudies;
+    return caseStudies.filter((c) => c.industry === filter);
+  }, [filter]);
+
+  const stats = useMemo(() => {
+    const total = caseStudies.length;
+    const liveStudies = caseStudies.filter((c) => !c.isDemo);
+    const avgConvLift = Math.round(
+      liveStudies.reduce((acc, c) => {
+        const m = c.metrics.find((x) => x.label.includes('Conversion'));
+        return acc + (m ? parseFloat(m.delta.replace(/[^0-9.-]/g, '')) : 0);
+      }, 0) / (liveStudies.length || 1)
+    );
+    const avgRevLift = Math.round(
+      liveStudies.reduce((acc, c) => {
+        const m = c.metrics.find((x) => x.label.includes('Umsatz') || x.label.includes('Monatsumsatz'));
+        return acc + (m ? parseFloat(m.delta.replace(/[^0-9.-]/g, '')) : 0);
+      }, 0) / (liveStudies.length || 1)
+    );
+    return { total, avgConvLift, avgRevLift };
+  }, []);
+
   return (
-    <article className="group relative rounded-3xl bg-white border border-neutral-200 overflow-hidden hover:border-neutral-900 transition-all duration-500 hover:-translate-y-1 hover:shadow-xl hover:shadow-neutral-900/5">
+    <div className="min-h-screen bg-white text-neutral-900 font-sans antialiased selection:bg-neutral-900 selection:text-white">
+      <SEO
+        title="Kundenprojekte & Fallstudien | Studio100 Webdesign"
+        description="Echte Ergebnisse für KMUs in der DACH-Region: Wie Studio100 mit strategischem Webdesign die Conversion-Rate und den Umsatz seiner Kunden messbar steigert."
+        canonical="/case-studies"
+      />
+      <Navbar />
 
-      {/* Browser Preview */}
-      <a href={study.siteUrl} target="_blank" rel="noopener noreferrer" className="block relative overflow-hidden">
-        <div className="flex items-center gap-2 px-4 py-2.5 bg-neutral-100 border-b border-neutral-200">
-          <div className="flex gap-1.5">
-            <span className="w-2.5 h-2.5 rounded-full bg-[#ff5f57]" />
-            <span className="w-2.5 h-2.5 rounded-full bg-[#febc2e]" />
-            <span className="w-2.5 h-2.5 rounded-full bg-[#28c840]" />
-          </div>
-          <div className="flex-1 bg-white rounded-full px-3 py-1 text-[11px] text-neutral-400 truncate border border-neutral-200">
-            {study.siteUrl.replace('https://', '').replace('http://', '')}
-          </div>
-          {study.isDemo ? (
-            <span className="text-[10px] font-medium px-2 py-0.5 rounded-full bg-purple-50 text-purple-600 border border-purple-100 flex-shrink-0">
-              Demo
-            </span>
-          ) : (
-            <span className="flex items-center gap-1 text-[10px] font-medium text-emerald-600 flex-shrink-0">
-              <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
-              Live
-            </span>
-          )}
-        </div>
-        <div className={`relative h-48 ${study.previewBg} overflow-hidden`}>
-          <div
-            className="absolute inset-0 opacity-10"
-            style={{
-              backgroundImage:
-                'linear-gradient(to right, rgba(255,255,255,0.1) 1px, transparent 1px), linear-gradient(to bottom, rgba(255,255,255,0.1) 1px, transparent 1px)',
-              backgroundSize: '32px 32px',
-            }}
-          />
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-32 h-32 rounded-full opacity-20 blur-2xl bg-white" />
-          <div className="absolute inset-0 bg-black/0 group-hover:bg-black/40 transition-all duration-300 flex items-center justify-center">
-            <span className="opacity-0 group-hover:opacity-100 transition-all duration-300 translate-y-2 group-hover:translate-y-0 inline-flex items-center gap-2 bg-white text-neutral-900 text-sm font-medium px-5 py-2.5 rounded-full shadow-lg">
-              <ExternalLink size={14} />
-              {study.isDemo ? 'Demo ansehen' : 'Live Website öffnen'}
-            </span>
-          </div>
-        </div>
-      </a>
+      {/* Hero */}
+      <section className="relative pt-36 pb-20 lg:pt-44 lg:pb-28 overflow-hidden bg-gradient-to-b from-white via-neutral-50 to-white">
+        <div className="absolute -top-40 -right-40 w-[600px] h-[600px] rounded-full bg-gradient-to-br from-blue-100 via-blue-50 to-transparent blur-3xl opacity-60 pointer-events-none" />
+        <div
+          className="absolute inset-0 opacity-[0.025] pointer-events-none"
+          style={{
+            backgroundImage:
+              'linear-gradient(to right, #000 1px, transparent 1px), linear-gradient(to bottom, #000 1px, transparent 1px)',
+            backgroundSize: '64px 64px',
+          }}
+        />
 
-      {/* Header */}
-      <div className={`relative p-8 lg:p-10 bg-gradient-to-br ${study.accentColor} border-b border-neutral-100`}>
-        <div className="flex items-start justify-between gap-4">
-          <div>
-            <div className="flex items-center gap-2 text-xs font-medium text-neutral-600 mb-3">
-              <span className="px-2.5 py-1 rounded-full bg-white border border-neutral-200">
-                {study.industry}
+        <div className="relative max-w-7xl mx-auto px-6 lg:px-10">
+          <Link
+            to="/"
+            className="inline-flex items-center gap-1.5 text-sm text-neutral-600 hover:text-neutral-900 transition mb-8"
+          >
+            <ArrowLeft size={14} /> Zurück zur Startseite
+          </Link>
+
+          <div className="max-w-4xl">
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white border border-neutral-200 shadow-sm text-xs font-medium text-neutral-700 mb-8">
+              <Sparkles size={14} className="text-blue-600" />
+              <span>Case Studies · Reale Ergebnisse</span>
+            </div>
+
+            <h1 className="text-5xl sm:text-6xl lg:text-7xl font-semibold tracking-tight text-neutral-900 leading-[1.05]">
+              Wenn Websites zu<br />
+              <span className="bg-gradient-to-r from-neutral-900 via-neutral-700 to-neutral-400 bg-clip-text text-transparent">
+                messbaren Verkaufssystemen werden.
               </span>
-              <span>·</span>
-              <span>{study.location}</span>
-              <span>·</span>
-              <span>{study.year}</span>
-              {study.isDemo && (
-                <>
-                  <span>·</span>
-                  <span className="px-2.5 py-1 rounded-full bg-purple-50 border border-purple-100 text-purple-600">
-                    Showcase
-                  </span>
-                </>
-              )}
+            </h1>
+            <p className="mt-8 text-lg lg:text-xl text-neutral-600 max-w-2xl leading-relaxed">
+              Echte Projekte aus verschiedenen Branchen – mit nachvollziehbaren
+              Vorher/Nachher-Zahlen, dem strategischen Ansatz dahinter und ehrlichen
+              Kundenstimmen.
+            </p>
+
+            {/* Stats */}
+            <div className="mt-14 grid grid-cols-3 gap-6 lg:gap-12 max-w-2xl border-t border-neutral-200 pt-10">
+              <div>
+                <div className="text-3xl lg:text-4xl font-semibold text-neutral-900 tracking-tight">
+                  {stats.total}
+                </div>
+                <div className="text-xs lg:text-sm text-neutral-500 mt-1">Dokumentierte Projekte</div>
+              </div>
+              <div>
+                <div className="text-3xl lg:text-4xl font-semibold text-neutral-900 tracking-tight">
+                  +{stats.avgConvLift}%
+                </div>
+                <div className="text-xs lg:text-sm text-neutral-500 mt-1">Ø Conversion-Steigerung</div>
+              </div>
+              <div>
+                <div className="text-3xl lg:text-4xl font-semibold text-neutral-900 tracking-tight">
+                  +{stats.avgRevLift}%
+                </div>
+                <div className="text-xs lg:text-sm text-neutral-500 mt-1">Ø Umsatz-Steigerung</div>
+              </div>
             </div>
-            <h3 className="text-2xl lg:text-3xl font-semibold tracking-tight text-neutral-900">
-              {study.company}
-            </h3>
-            <p className="mt-2 text-neutral-700 max-w-xl leading-relaxed">{study.tagline}</p>
-          </div>
-          <div className="text-xs font-mono text-neutral-400 flex-shrink-0">
-            {String(index + 1).padStart(2, '0')}
           </div>
         </div>
-      </div>
+      </section>
 
-      {/* Metrics */}
-      <div className="grid grid-cols-3 divide-x divide-neutral-100 border-b border-neutral-100">
-        {study.metrics.map((m, i) => (
-          <div key={i} className="p-6 lg:p-8">
-            <div className="text-[10px] uppercase tracking-wider text-neutral-500 font-medium mb-3">
-              {m.label}
-            </div>
-            <div className="flex items-baseline gap-2 flex-wrap">
-              {m.before && (
-                <>
-                  <span className="text-xs text-neutral-400 line-through">{m.before}</span>
-                  <span className="text-xs text-neutral-400">→</span>
-                </>
-              )}
-              <span className="text-lg lg:text-xl font-semibold text-neutral-900 tracking-tight">
-                {m.after}
-              </span>
-            </div>
-            <div className={`mt-2 inline-flex items-center gap-1 text-xs font-medium px-2 py-0.5 rounded-full ${
-              study.isDemo ? 'text-purple-700 bg-purple-50' : 'text-emerald-700 bg-emerald-50'
-            }`}>
-              {!study.isDemo && <TrendingUp size={10} strokeWidth={3} />}
-              {m.delta}
-            </div>
-          </div>
-        ))}
-      </div>
-
-      {/* Body */}
-      <div className="p-8 lg:p-10 grid grid-cols-1 lg:grid-cols-2 gap-8">
-        <div>
-          <div className="text-[10px] font-semibold tracking-[0.2em] text-blue-600 uppercase mb-3">
-            {study.isDemo ? 'Über dieses Projekt' : 'Ausgangslage'}
-          </div>
-          <p className="text-[15px] text-neutral-700 leading-relaxed">{study.problem}</p>
-        </div>
-        <div>
-          <div className="text-[10px] font-semibold tracking-[0.2em] text-blue-600 uppercase mb-3">
-            Unser Ansatz
-          </div>
-          <ul className="space-y-2.5">
-            {study.solution.map((s, i) => (
-              <li key={i} className="flex items-start gap-2.5 text-[15px] text-neutral-700">
-                <span className="mt-2 w-1 h-1 rounded-full bg-neutral-400 flex-shrink-0" />
-                <span className="leading-relaxed">{s}</span>
-              </li>
-            ))}
-          </ul>
-        </div>
-      </div>
-
-      {/* Footer */}
-      <div className="p-8 lg:p-10 bg-neutral-50 border-t border-neutral-100">
-        <blockquote className="text-lg text-neutral-800 leading-relaxed">
-          "{study.testimonial.quote}"
-        </blockquote>
-        <div className="mt-6 flex items-center justify-between gap-4 flex-wrap">
-          <div className="flex items-center gap-3">
-            <div className={`w-11 h-11 rounded-full text-white flex items-center justify-center text-sm font-semibold ${
-              study.isDemo ? 'bg-purple-600' : 'bg-neutral-900'
-            }`}>
-              {study.testimonial.initials}
-            </div>
+      {/* Filter + Grid */}
+      <section className="py-16 lg:py-24 bg-white">
+        <div className="max-w-7xl mx-auto px-6 lg:px-10">
+          {/* Filter bar */}
+          <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-6 mb-12 pb-6 border-b border-neutral-200">
             <div>
-              <div className="text-sm font-semibold text-neutral-900">{study.testimonial.author}</div>
-              <div className="text-xs text-neutral-500">{study.testimonial.role}</div>
+              <div className="text-xs font-semibold tracking-[0.2em] text-blue-600 uppercase mb-2">
+                Filter
+              </div>
+              <h2 className="text-2xl font-semibold tracking-tight text-neutral-900">
+                Nach Branche filtern
+              </h2>
+            </div>
+            <div className="flex flex-wrap gap-2">
+              {industries.map((ind) => {
+                const active = filter === ind;
+                const count =
+                  ind === 'Alle'
+                    ? caseStudies.length
+                    : caseStudies.filter((c) => c.industry === ind).length;
+                return (
+                  <button
+                    key={ind}
+                    onClick={() => setFilter(ind)}
+                    className={`inline-flex items-center gap-2 px-4 py-2.5 rounded-full text-sm font-medium border transition-all ${
+                      active
+                        ? 'bg-neutral-900 text-white border-neutral-900'
+                        : 'bg-white text-neutral-700 border-neutral-200 hover:border-neutral-900'
+                    }`}
+                  >
+                    {ind}
+                    <span
+                      className={`text-[10px] px-1.5 py-0.5 rounded-full ${
+                        active ? 'bg-white/20 text-white' : 'bg-neutral-100 text-neutral-500'
+                      }`}
+                    >
+                      {count}
+                    </span>
+                  </button>
+                );
+              })}
             </div>
           </div>
-          {study.isDemo ? (
-            <a
-              href={study.siteUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-purple-50 border border-purple-200 text-purple-700 text-sm font-medium hover:bg-purple-100 transition-all"
-            >
-              <span className="w-2 h-2 rounded-full bg-purple-400" />
-              Demo ansehen
-              <ExternalLink size={13} />
-            </a>
+
+          {filtered.length === 0 ? (
+            <div className="text-center py-20 text-neutral-500">
+              Keine Projekte in dieser Branche gefunden.
+            </div>
           ) : (
-            <a
-              href={study.siteUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-emerald-50 border border-emerald-200 text-emerald-700 text-sm font-medium hover:bg-emerald-100 transition-all"
-            >
-              <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
-              Live Website
-              <ExternalLink size={13} />
-            </a>
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8">
+              {filtered.map((study, i) => (
+                <CaseStudyCard key={study.slug} study={study} index={i} />
+              ))}
+            </div>
           )}
         </div>
-      </div>
+      </section>
 
-    </article>
+      {/* CTA */}
+      <section className="py-24 lg:py-32 bg-neutral-950 text-white relative overflow-hidden">
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] rounded-full bg-blue-600/10 blur-3xl pointer-events-none" />
+
+        <div className="relative max-w-4xl mx-auto px-6 lg:px-10 text-center">
+          <div className="text-xs font-semibold tracking-[0.2em] text-blue-400 uppercase mb-4">
+            Ihr Projekt als nächste Case Study
+          </div>
+          <h2 className="text-4xl lg:text-6xl font-semibold tracking-tight leading-[1.1]">
+            Bereit für messbare Ergebnisse?
+          </h2>
+          <p className="mt-6 text-lg text-neutral-400 max-w-2xl mx-auto leading-relaxed">
+            Lassen Sie uns über Ihr Vorhaben sprechen. Wir prüfen unverbindlich, welches Potenzial
+            in Ihrer aktuellen Website steckt – und wie wir es freischalten.
+          </p>
+
+          <div className="mt-10 flex flex-col sm:flex-row gap-4 justify-center">
+            <Link
+              to="/#contact"
+              className="group inline-flex items-center justify-center gap-2 px-7 py-4 rounded-full bg-white text-neutral-900 text-sm font-medium hover:bg-neutral-200 transition-all"
+            >
+              Projekt anfragen
+              <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
+            </Link>
+            <Link
+              to="/#analysis"
+              className="inline-flex items-center justify-center px-7 py-4 rounded-full bg-white/5 border border-white/10 text-white text-sm font-medium hover:bg-white/10 transition-all"
+            >
+              Kostenlose Website-Analyse
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      <Footer />
+    </div>
   );
 };
 
-export default CaseStudyCard;
+export default CaseStudiesPage;
