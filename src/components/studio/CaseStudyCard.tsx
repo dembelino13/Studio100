@@ -149,45 +149,48 @@ const CaseStudyCard: React.FC<Props> = ({ study, index }) => {
         </div>
       </div>
 
-      {/* ── Testimonial / Footer ────────────────────────────────────── */}
-      <div className="p-8 lg:p-10 bg-neutral-50 border-t border-neutral-100">
-        <blockquote className="text-lg text-neutral-800 leading-relaxed">
-          "{study.testimonial.quote}"
-        </blockquote>
-        <div className="mt-6 flex items-center justify-between gap-4 flex-wrap">
-          <div className="flex items-center gap-3">
-            <div className={`w-11 h-11 rounded-full text-white flex items-center justify-center text-sm font-semibold ${
-              study.isDemo ? 'bg-purple-600' : 'bg-neutral-900'
-            }`}>
-              {study.testimonial.initials}
-            </div>
-            <div>
-              <div className="text-sm font-semibold text-neutral-900">
-                {study.testimonial.author}
-              </div>
-              <div className="text-xs text-neutral-500">{study.testimonial.role}</div>
-            </div>
-          </div>
-
-          {study.isDemo ? (
-            <a
-              href={study.siteUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-1.5 text-sm font-medium text-purple-600 hover:text-purple-700 transition-colors"
-            >
-              Demo ansehen <ExternalLink size={14} />
-            </a>
-          ) : (
-            <div className="inline-flex items-center gap-1.5 text-sm font-medium text-neutral-900 group-hover:gap-2 transition-all">
-              Vollständige Case Study <ArrowUpRight size={14} />
-            </div>
-          )}
-        </div>
+     {/* ── Testimonial / Footer ────────────────────────────────────── */}
+<div className="p-8 lg:p-10 bg-neutral-50 border-t border-neutral-100">
+  <blockquote className="text-lg text-neutral-800 leading-relaxed">
+    "{study.testimonial.quote}"
+  </blockquote>
+  <div className="mt-6 flex items-center justify-between gap-4 flex-wrap">
+    <div className="flex items-center gap-3">
+      <div className={`w-11 h-11 rounded-full text-white flex items-center justify-center text-sm font-semibold ${
+        study.isDemo ? 'bg-purple-600' : 'bg-neutral-900'
+      }`}>
+        {study.testimonial.initials}
       </div>
+      <div>
+        <div className="text-sm font-semibold text-neutral-900">
+          {study.testimonial.author}
+        </div>
+        <div className="text-xs text-neutral-500">{study.testimonial.role}</div>
+      </div>
+    </div>
 
-    </article>
-  );
-};
-
-export default CaseStudyCard;
+    {study.isDemo ? (
+      
+        href={study.siteUrl}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-purple-50 border border-purple-200 text-purple-700 text-sm font-medium hover:bg-purple-100 transition-all"
+      >
+        <span className="w-2 h-2 rounded-full bg-purple-400" />
+        Demo ansehen
+        <ExternalLink size={13} />
+      </a>
+    ) : (
+      
+        href={study.siteUrl}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-emerald-50 border border-emerald-200 text-emerald-700 text-sm font-medium hover:bg-emerald-100 transition-all"
+      >
+        <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
+        Live Website
+        <ExternalLink size={13} />
+      </a>
+    )}
+  </div>
+</div>
