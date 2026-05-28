@@ -1,5 +1,5 @@
 import React from 'react';
-import { ArrowUpRight, TrendingUp, ExternalLink } from 'lucide-react';
+import { TrendingUp, ExternalLink } from 'lucide-react';
 import type { CaseStudy } from '@/data/caseStudies';
 
 interface Props {
@@ -11,13 +11,8 @@ const CaseStudyCard: React.FC<Props> = ({ study, index }) => {
   return (
     <article className="group relative rounded-3xl bg-white border border-neutral-200 overflow-hidden hover:border-neutral-900 transition-all duration-500 hover:-translate-y-1 hover:shadow-xl hover:shadow-neutral-900/5">
 
-      {/* ── Browser Preview ─────────────────────────────────────────── */}
-      <a
-        href={study.siteUrl}
-        target="_blank"
-        rel="noopener noreferrer"
-        className="block relative overflow-hidden"
-      >
+      {/* Browser Preview */}
+      <a href={study.siteUrl} target="_blank" rel="noopener noreferrer" className="block relative overflow-hidden">
         <div className="flex items-center gap-2 px-4 py-2.5 bg-neutral-100 border-b border-neutral-200">
           <div className="flex gap-1.5">
             <span className="w-2.5 h-2.5 rounded-full bg-[#ff5f57]" />
@@ -38,7 +33,6 @@ const CaseStudyCard: React.FC<Props> = ({ study, index }) => {
             </span>
           )}
         </div>
-
         <div className={`relative h-48 ${study.previewBg} overflow-hidden`}>
           <div
             className="absolute inset-0 opacity-10"
@@ -58,7 +52,7 @@ const CaseStudyCard: React.FC<Props> = ({ study, index }) => {
         </div>
       </a>
 
-      {/* ── Header ──────────────────────────────────────────────────── */}
+      {/* Header */}
       <div className={`relative p-8 lg:p-10 bg-gradient-to-br ${study.accentColor} border-b border-neutral-100`}>
         <div className="flex items-start justify-between gap-4">
           <div>
@@ -90,7 +84,7 @@ const CaseStudyCard: React.FC<Props> = ({ study, index }) => {
         </div>
       </div>
 
-      {/* ── Metrics ─────────────────────────────────────────────────── */}
+      {/* Metrics */}
       <div className="grid grid-cols-3 divide-x divide-neutral-100 border-b border-neutral-100">
         {study.metrics.map((m, i) => (
           <div key={i} className="p-6 lg:p-8">
@@ -109,9 +103,7 @@ const CaseStudyCard: React.FC<Props> = ({ study, index }) => {
               </span>
             </div>
             <div className={`mt-2 inline-flex items-center gap-1 text-xs font-medium px-2 py-0.5 rounded-full ${
-              study.isDemo
-                ? 'text-purple-700 bg-purple-50'
-                : 'text-emerald-700 bg-emerald-50'
+              study.isDemo ? 'text-purple-700 bg-purple-50' : 'text-emerald-700 bg-emerald-50'
             }`}>
               {!study.isDemo && <TrendingUp size={10} strokeWidth={3} />}
               {m.delta}
@@ -120,7 +112,7 @@ const CaseStudyCard: React.FC<Props> = ({ study, index }) => {
         ))}
       </div>
 
-      {/* ── Body ────────────────────────────────────────────────────── */}
+      {/* Body */}
       <div className="p-8 lg:p-10 grid grid-cols-1 lg:grid-cols-2 gap-8">
         <div>
           <div className="text-[10px] font-semibold tracking-[0.2em] text-blue-600 uppercase mb-3">
@@ -143,7 +135,7 @@ const CaseStudyCard: React.FC<Props> = ({ study, index }) => {
         </div>
       </div>
 
-      {/* ── Testimonial / Footer ────────────────────────────────────── */}
+      {/* Footer */}
       <div className="p-8 lg:p-10 bg-neutral-50 border-t border-neutral-100">
         <blockquote className="text-lg text-neutral-800 leading-relaxed">
           "{study.testimonial.quote}"
@@ -156,13 +148,10 @@ const CaseStudyCard: React.FC<Props> = ({ study, index }) => {
               {study.testimonial.initials}
             </div>
             <div>
-              <div className="text-sm font-semibold text-neutral-900">
-                {study.testimonial.author}
-              </div>
+              <div className="text-sm font-semibold text-neutral-900">{study.testimonial.author}</div>
               <div className="text-xs text-neutral-500">{study.testimonial.role}</div>
             </div>
           </div>
-
           {study.isDemo ? (
             <a
               href={study.siteUrl}
