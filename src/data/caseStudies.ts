@@ -1,4 +1,4 @@
-export type Industry = 'Bau' | 'Sanitär' | 'Dachdecker' | 'Elektro' | 'Fintech' | 'Coaching' | 'Gastronomie' | 'Health & SaaS' | 'Legal & Digital';
+export type Industry = 'Fintech' | 'Coaching' | 'Gastronomie' | 'Health & SaaS' | 'Legal & Digital';
 
 export interface CaseStudyMetric {
   label: string;
@@ -25,15 +25,12 @@ export interface CaseStudy {
     initials: string;
   };
   accentColor: string;
-  // Neue Felder für Live-Preview
   isDemo: boolean;
   siteUrl: string;
-  previewBg: string; // Tailwind bg-color für Preview
+  previewBg: string;
 }
 
 export const caseStudies: CaseStudy[] = [
-  // ─── ECHTE KUNDENPROJEKTE ───────────────────────────────────────────────────
-
   {
     slug: 'orofx',
     company: 'OroFx Trading Signals',
@@ -66,7 +63,6 @@ export const caseStudies: CaseStudy[] = [
     },
     accentColor: 'from-blue-600/20 to-blue-600/5',
   },
-
   {
     slug: 'dein-resonanzraum',
     company: 'Dein Resonanzraum',
@@ -93,15 +89,12 @@ export const caseStudies: CaseStudy[] = [
     testimonial: {
       quote:
         'Endlich eine Website die wirklich ich bin. Die Anfragen kamen schon in der ersten Woche nach Launch — und die Qualität der Klienten hat sich komplett verändert.',
-      author: 'Inhaberin',
-      role: 'deinresonanzraum.de',
-      initials: 'DR',
+      author: 'Jenny Ried',
+      role: 'Gründerin, deinresonanzraum.de',
+      initials: 'JR',
     },
     accentColor: 'from-purple-500/20 to-purple-500/5',
   },
-
-  // ─── DEMO-PROJEKTE (Showcases) ──────────────────────────────────────────────
-
   {
     slug: 'pizzeria-salsa',
     company: 'Ristorante Pizzeria Salsa',
@@ -134,7 +127,6 @@ export const caseStudies: CaseStudy[] = [
     },
     accentColor: 'from-orange-500/20 to-orange-500/5',
   },
-
   {
     slug: 'aionos-longevity',
     company: 'AionOS Longevity Platform',
@@ -167,7 +159,6 @@ export const caseStudies: CaseStudy[] = [
     },
     accentColor: 'from-emerald-500/20 to-emerald-500/5',
   },
-
   {
     slug: 'privacy-compliance',
     company: 'Privacy Compliance Generator',
@@ -181,7 +172,7 @@ export const caseStudies: CaseStudy[] = [
     problem:
       'Demo-Projekt für die Legal & Digital Nische. Zeigt wie wir Compliance-Produkte und rechtliche Dienstleistungen klar, seriös und konversionsstark präsentieren.',
     solution: [
-      'Serióse Designsprache die Kompetenz und Verlässlichkeit ausstrahlt',
+      'Seriöse Designsprache die Kompetenz und Verlässlichkeit ausstrahlt',
       'Komplexe Legal-Themen klar und verständlich strukturiert',
       'Monatliches Update-Modell als Subscription-Angebot positioniert',
       'Vertrauenssignale (DSGVO, ISO, Referenzen) strategisch platziert',
