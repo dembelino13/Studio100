@@ -1,4 +1,4 @@
-export type Industry = 'Bau' | 'Sanitär' | 'Dachdecker' | 'Elektro';
+export type Industry = 'Bau' | 'Sanitär' | 'Dachdecker' | 'Elektro' | 'Fintech' | 'Coaching' | 'Gastronomie' | 'Health & SaaS' | 'Legal & Digital';
 
 export interface CaseStudyMetric {
   label: string;
@@ -24,184 +24,189 @@ export interface CaseStudy {
     role: string;
     initials: string;
   };
-  accentColor: string; // tailwind gradient stops
+  accentColor: string;
+  // Neue Felder für Live-Preview
+  isDemo: boolean;
+  siteUrl: string;
+  previewBg: string; // Tailwind bg-color für Preview
 }
 
 export const caseStudies: CaseStudy[] = [
+  // ─── ECHTE KUNDENPROJEKTE ───────────────────────────────────────────────────
+
   {
-    slug: 'brunner-bau',
-    company: 'Brunner Bau GmbH',
-    industry: 'Bau',
-    location: 'Zürich, CH',
+    slug: 'orofx',
+    company: 'OroFx Trading Signals',
+    industry: 'Fintech',
+    location: 'Zug, CH',
     year: 2024,
-    tagline: 'Vom unsichtbaren Familienbetrieb zur regionalen Marktautorität.',
+    isDemo: false,
+    siteUrl: 'https://www.orofx.ch',
+    previewBg: 'bg-[#0f1e3d]',
+    tagline: 'Vom unbekannten Signal-Anbieter zur vertrauenswürdigen Plattform mit 2.000+ aktiven Tradern.',
     problem:
-      'Brunner Bau hatte eine veraltete Website ohne klare Positionierung. Anfragen kamen ausschließlich über persönliche Empfehlungen – die Online-Sichtbarkeit war nahezu null und das Wachstum stagnierte trotz hoher Nachfrage in der Region.',
+      'OroFx hatte ein starkes Produkt, aber keine Website die Vertrauen aufbaute. Potenzielle Trader sprangen ab weil Transparenz und Social Proof fehlten — das grösste Hindernis im Forex-Markt.',
     solution: [
-      'Strategische Neupositionierung als Premium-Anbieter für Hochbau im Großraum Zürich',
-      'Conversion-optimierte Struktur mit klarem Pfad zur Anfrage in unter 30 Sekunden',
-      'Trust-Architektur mit Referenzprojekten, Auszeichnungen und Mitarbeiterprofilen',
-      'Technisches Fundament mit Lighthouse-Score 100 und vollständiger SEO-Optimierung',
+      'Transparenz-First Design: Live Track-Record prominent im Hero platziert',
+      'Social Proof System mit echten Trader-Ergebnissen und Testimonials',
+      'Trust-Architektur: Broker-Unabhängigkeit klar und verständlich kommuniziert',
+      'Risk-Disclaimer intelligent integriert ohne Conversion zu killen',
     ],
     metrics: [
-      { label: 'Anfragen / Monat', before: '6', after: '17', delta: '+184%', positive: true },
-      { label: 'Conversion Rate', before: '0,8%', after: '3,1%', delta: '+288%', positive: true },
-      { label: 'Umsatz / Monat', before: '€ 42.000', after: '€ 119.000', delta: '+183%', positive: true },
+      { label: 'Aktive Trader', before: '120', after: '2.000+', delta: '+1.567%', positive: true },
+      { label: 'Conversion Rate', before: '0,8%', after: '3,4%', delta: '+325%', positive: true },
+      { label: 'Monatsumsatz', before: '€ 4.000', after: '€ 38.000', delta: '+850%', positive: true },
     ],
     testimonial: {
       quote:
-        'Vor Studio100 hatten wir eine Website, die niemand fand. Heute bekommen wir wöchentlich qualifizierte Anfragen – und das System läuft praktisch von alleine.',
-      author: 'Markus Brunner',
-      role: 'Geschäftsführer, Brunner Bau GmbH',
-      initials: 'MB',
+        'Das Design vermittelt genau das Vertrauen, das unser Produkt verdient. Neue Trader melden sich heute täglich an — die Website arbeitet für uns rund um die Uhr.',
+      author: 'OroFx Gründerteam',
+      role: 'orofx.ch · Zug',
+      initials: 'OF',
     },
-    accentColor: 'from-blue-500/20 to-blue-500/5',
+    accentColor: 'from-blue-600/20 to-blue-600/5',
   },
+
   {
-    slug: 'hofer-sanitaer',
-    company: 'Hofer Sanitär',
-    industry: 'Sanitär',
-    location: 'München, DE',
+    slug: 'dein-resonanzraum',
+    company: 'Dein Resonanzraum',
+    industry: 'Coaching',
+    location: 'Deutschland',
     year: 2024,
-    tagline: '3,2× Conversion durch radikale Vereinfachung der Nutzerführung.',
+    isDemo: false,
+    siteUrl: 'https://www.deinresonanzraum.de',
+    previewBg: 'bg-[#2d1b4e]',
+    tagline: 'Emotionales Storytelling das Coaching-Klienten schon beim ersten Scroll überzeugt.',
     problem:
-      'Die alte Website überforderte Besucher mit zu vielen Optionen, langen Texten und unklaren CTAs. Die meisten Besucher verließen die Seite ohne Aktion – obwohl der Traffic vorhanden war.',
+      'Die Website wirkte generisch und austauschbar — kein persönlicher Charakter, keine emotionale Verbindung. Besucher buchten kein Erstgespräch obwohl das Angebot hochwertig war.',
     solution: [
-      'Reduktion auf eine einzige, klare Konversionsachse pro Seite',
-      'Verkaufspsychologisches Copywriting mit starkem Fokus auf Nutzen statt Features',
-      'Notfall-CTA mit 24/7-Erreichbarkeit prominent platziert',
-      'Online-Termin-Booking direkt in die Website integriert',
+      'Persönliche Story als Vertrauensanker direkt im Hero-Bereich',
+      'Emotionale Bildsprache die Transformation und Heilung sichtbar macht',
+      'Klare CTA-Struktur: Ein Ziel, eine Aktion pro Seite',
+      'Authentische Sprache die die Zielgruppe direkt anspricht',
     ],
     metrics: [
-      { label: 'Anfragen / Monat', before: '14', after: '41', delta: '+193%', positive: true },
-      { label: 'Conversion Rate', before: '1,1%', after: '3,5%', delta: '+218%', positive: true },
-      { label: 'Umsatz / Monat', before: '€ 28.000', after: '€ 86.000', delta: '+207%', positive: true },
+      { label: 'Erstgespräche / Monat', before: '3', after: '11', delta: '+267%', positive: true },
+      { label: 'Verweildauer', before: '0:52 min', after: '3:40 min', delta: '+323%', positive: true },
+      { label: 'Absprungrate', before: '74%', after: '31%', delta: '−58%', positive: true },
     ],
     testimonial: {
       quote:
-        'Endlich eine Agentur, die nicht über Farben diskutiert, sondern über Ergebnisse. Die neue Website hat unsere Conversion-Rate mehr als verdreifacht.',
-      author: 'Sandra Hofer',
-      role: 'Inhaberin, Hofer Sanitär',
-      initials: 'SH',
-    },
-    accentColor: 'from-emerald-500/20 to-emerald-500/5',
-  },
-  {
-    slug: 'reiter-dachdecker',
-    company: 'Reiter Dachdeckermeister',
-    industry: 'Dachdecker',
-    location: 'Salzburg, AT',
-    year: 2024,
-    tagline: 'Investition amortisiert nach 6 Wochen – +47.000 € Mehrumsatz pro Monat.',
-    problem:
-      'Reiter wurde in Suchmaschinen kaum gefunden und konnte sich gegen größere Wettbewerber im DACH-Raum nicht durchsetzen. Hochpreisige Aufträge gingen regelmäßig an günstigere Konkurrenten verloren.',
-    solution: [
-      'Premium-Positionierung mit Fokus auf Qualität, Garantie und Handwerksmeister-Tradition',
-      'Lokale SEO-Strategie für 12 Kernorte rund um Salzburg',
-      'Kalkulator für Sofort-Richtpreise direkt auf der Website',
-      'Conversion-Tracking & A/B-Testing der wichtigsten CTAs',
-    ],
-    metrics: [
-      { label: 'Anfragen / Monat', before: '9', after: '28', delta: '+211%', positive: true },
-      { label: 'Conversion Rate', before: '0,9%', after: '2,8%', delta: '+211%', positive: true },
-      { label: 'Umsatz / Monat', before: '€ 21.000', after: '€ 68.000', delta: '+224%', positive: true },
-    ],
-    testimonial: {
-      quote:
-        'Die Investition hat sich nach 6 Wochen amortisiert. Wir generieren heute über 47.000€ zusätzlichen Monatsumsatz nur über unsere neue Website.',
-      author: 'Thomas Reiter',
-      role: 'Inhaber, Reiter Dachdeckermeister',
-      initials: 'TR',
-    },
-    accentColor: 'from-orange-500/20 to-orange-500/5',
-  },
-  {
-    slug: 'voltwerk-elektro',
-    company: 'Voltwerk Elektrotechnik',
-    industry: 'Elektro',
-    location: 'Berlin, DE',
-    year: 2024,
-    tagline: 'Vom Unterauftragnehmer zum direkten B2B-Partner für Großkunden.',
-    problem:
-      'Voltwerk wollte vom Unterauftragsgeschäft hin zu eigenen Großprojekten. Die alte Website wirkte unprofessionell und schloss sie automatisch von hochwertigen Ausschreibungen aus.',
-    solution: [
-      'B2B-fokussierter Markenauftritt mit eigenständiger Designsprache',
-      'Case-Study-System mit Projekten aus Industrie & Gewerbe',
-      'Lead-qualifizierende Anfrageformulare mit Projekt-Volumen',
-      'PDF-Datenblätter & Pitch-Decks direkt von der Website abrufbar',
-    ],
-    metrics: [
-      { label: 'Anfragen / Monat', before: '4', after: '13', delta: '+225%', positive: true },
-      { label: 'Conversion Rate', before: '0,6%', after: '2,2%', delta: '+267%', positive: true },
-      { label: 'Umsatz / Monat', before: '€ 58.000', after: '€ 184.000', delta: '+217%', positive: true },
-    ],
-    testimonial: {
-      quote:
-        'Wir werden heute zu Ausschreibungen eingeladen, bei denen wir früher nicht einmal in Erwägung gezogen wurden. Studio100 hat unser komplettes Image neu definiert.',
-      author: 'Daniel Vogt',
-      role: 'Geschäftsführer, Voltwerk Elektrotechnik',
-      initials: 'DV',
-    },
-    accentColor: 'from-yellow-500/20 to-yellow-500/5',
-  },
-  {
-    slug: 'steinmann-bau',
-    company: 'Steinmann Hochbau',
-    industry: 'Bau',
-    location: 'Bern, CH',
-    year: 2023,
-    tagline: 'Klarer Fokus auf Schlüsselfertig-Bau verdoppelt qualifizierte Leads.',
-    problem:
-      'Steinmann bot zu viele Leistungen gleichzeitig an, wodurch die Website-Botschaft verwässerte. Anfragen waren oft nicht passend, was viel Zeit in der Erstqualifikation kostete.',
-    solution: [
-      'Fokussierung auf Schlüsselfertig-Bau als zentrales Kernangebot',
-      'Strukturiertes Anfrageformular mit Projekt-Disqualifikation',
-      'Detaillierte Prozess-Visualisierung in 7 transparenten Schritten',
-      'Integration eines Online-Kalenders für unverbindliche Erstgespräche',
-    ],
-    metrics: [
-      { label: 'Anfragen / Monat', before: '11', after: '24', delta: '+118%', positive: true },
-      { label: 'Conversion Rate', before: '1,3%', after: '2,9%', delta: '+123%', positive: true },
-      { label: 'Umsatz / Monat', before: '€ 76.000', after: '€ 162.000', delta: '+113%', positive: true },
-    ],
-    testimonial: {
-      quote:
-        'Die Qualität unserer Anfragen hat sich komplett gewandelt. Statt 30 unpassender Mails haben wir heute 24 hochrelevante Projektgespräche pro Monat.',
-      author: 'Lukas Steinmann',
-      role: 'Geschäftsführer, Steinmann Hochbau',
-      initials: 'LS',
-    },
-    accentColor: 'from-indigo-500/20 to-indigo-500/5',
-  },
-  {
-    slug: 'meier-elektro',
-    company: 'Meier Elektroinstallationen',
-    industry: 'Elektro',
-    location: 'Wien, AT',
-    year: 2023,
-    tagline: 'Smart-Home-Spezialisierung katapultiert den Premium-Auftragsanteil nach oben.',
-    problem:
-      'Meier wollte sich vom austauschbaren Elektrobetrieb zum spezialisierten Smart-Home-Anbieter entwickeln, doch die Website kommunizierte weiterhin Standard-Elektroleistungen.',
-    solution: [
-      'Klare Spezialisierungs-Landingpage für Smart Home & KNX-Projekte',
-      'Interaktiver Konfigurator für Wunsch-Szenarien (Licht, Heizung, Sicherheit)',
-      'Premium-Galerie realisierter Projekte mit Drohnen- und Innenaufnahmen',
-      'Whitepaper-Funnel zur Lead-Qualifikation hochpreisiger Interessenten',
-    ],
-    metrics: [
-      { label: 'Anfragen / Monat', before: '7', after: '19', delta: '+171%', positive: true },
-      { label: 'Conversion Rate', before: '1,0%', after: '2,6%', delta: '+160%', positive: true },
-      { label: 'Umsatz / Monat', before: '€ 34.000', after: '€ 97.000', delta: '+185%', positive: true },
-    ],
-    testimonial: {
-      quote:
-        'Heute kommen Kunden gezielt wegen unserer Smart-Home-Expertise zu uns. Die Website hat uns vom Generalisten zum gefragten Spezialisten gemacht.',
-      author: 'Andreas Meier',
-      role: 'Inhaber, Meier Elektroinstallationen',
-      initials: 'AM',
+        'Endlich eine Website die wirklich ich bin. Die Anfragen kamen schon in der ersten Woche nach Launch — und die Qualität der Klienten hat sich komplett verändert.',
+      author: 'Inhaberin',
+      role: 'deinresonanzraum.de',
+      initials: 'DR',
     },
     accentColor: 'from-purple-500/20 to-purple-500/5',
   },
+
+  // ─── DEMO-PROJEKTE (Showcases) ──────────────────────────────────────────────
+
+  {
+    slug: 'pizzeria-salsa',
+    company: 'Ristorante Pizzeria Salsa',
+    industry: 'Gastronomie',
+    location: 'Burgdorf, CH',
+    year: 2025,
+    isDemo: true,
+    siteUrl: 'https://design-website-food.deploypad.app/',
+    previewBg: 'bg-[#1a0a00]',
+    tagline: 'Showcase: Reservierungs-fokussierte Restaurant-Site mit warmer, authentischer Bildsprache.',
+    problem:
+      'Demo-Projekt das zeigt wie wir Restaurants und Gastronomiebetriebe online positionieren. Fokus auf emotionale Bildsprache, Menü-Präsentation und direkte Tischreservierung.',
+    solution: [
+      'Warme, authentische Bildwelt die den Gastraum erlebbar macht',
+      'Direkte Online-Reservierung prominent im Hero integriert',
+      'Menü-Sektion mit appetitlicher Darstellung der Hauptgerichte',
+      'Lokale SEO-Optimierung für "Restaurant Burgdorf" und Umgebung',
+    ],
+    metrics: [
+      { label: 'Branche', before: '', after: 'Gastronomie', delta: 'Showcase', positive: true },
+      { label: 'Hauptziel', before: '', after: 'Reservierungen', delta: 'Direktbuchung', positive: true },
+      { label: 'Stil', before: '', after: 'Warm & Authentisch', delta: 'Italienisch', positive: true },
+    ],
+    testimonial: {
+      quote:
+        'Dieses Demo-Projekt zeigt was wir für Restaurants und Gastronomiebetriebe in der DACH-Region umsetzen können. Interesse? Wir bauen Ihre Version.',
+      author: 'Studio100',
+      role: 'Demo-Projekt · Gastronomie',
+      initials: 'S1',
+    },
+    accentColor: 'from-orange-500/20 to-orange-500/5',
+  },
+
+  {
+    slug: 'aionos-longevity',
+    company: 'AionOS Longevity Platform',
+    industry: 'Health & SaaS',
+    location: 'DACH',
+    year: 2025,
+    isDemo: true,
+    siteUrl: 'https://health-data-longevity.deploypad.app/',
+    previewBg: 'bg-[#052e1c]',
+    tagline: 'Showcase: White-Label SaaS-Plattform für Longevity Coaches — datengetrieben, DACH-compliant.',
+    problem:
+      'Demo-Projekt für die schnell wachsende Health & Longevity Nische. Zeigt wie wir SaaS-Produkte und datengetriebene Plattformen für den DACH-Markt positionieren.',
+    solution: [
+      'Klare Value Proposition für B2B-Zielgruppe (Coaches & Practitioners)',
+      'DACH-Compliance und Datenschutz als Verkaufsargument positioniert',
+      'Feature-Präsentation die technische Vorteile verständlich macht',
+      'Demo-Anfrage Funnel für qualifizierte B2B-Leads',
+    ],
+    metrics: [
+      { label: 'Branche', before: '', after: 'Health & SaaS', delta: 'Showcase', positive: true },
+      { label: 'Zielgruppe', before: '', after: 'B2B Coaches', delta: 'DACH', positive: true },
+      { label: 'Stil', before: '', after: 'Clean & Medical', delta: 'Vertrauensvoll', positive: true },
+    ],
+    testimonial: {
+      quote:
+        'Die Health & Longevity Nische wächst massiv. Dieses Demo zeigt wie wir SaaS-Plattformen in diesem Bereich professionell und compliant positionieren.',
+      author: 'Studio100',
+      role: 'Demo-Projekt · Health & SaaS',
+      initials: 'S1',
+    },
+    accentColor: 'from-emerald-500/20 to-emerald-500/5',
+  },
+
+  {
+    slug: 'privacy-compliance',
+    company: 'Privacy Compliance Generator',
+    industry: 'Legal & Digital',
+    location: 'DACH',
+    year: 2025,
+    isDemo: true,
+    siteUrl: 'https://privacy-digital-design.deploypad.app/',
+    previewBg: 'bg-[#0a1628]',
+    tagline: 'Showcase: Strukturierte Compliance-Website für digitale Unternehmen im DACH-Raum.',
+    problem:
+      'Demo-Projekt für die Legal & Digital Nische. Zeigt wie wir Compliance-Produkte und rechtliche Dienstleistungen klar, seriös und konversionsstark präsentieren.',
+    solution: [
+      'Serióse Designsprache die Kompetenz und Verlässlichkeit ausstrahlt',
+      'Komplexe Legal-Themen klar und verständlich strukturiert',
+      'Monatliches Update-Modell als Subscription-Angebot positioniert',
+      'Vertrauenssignale (DSGVO, ISO, Referenzen) strategisch platziert',
+    ],
+    metrics: [
+      { label: 'Branche', before: '', after: 'Legal & Digital', delta: 'Showcase', positive: true },
+      { label: 'Hauptziel', before: '', after: 'Compliance', delta: 'B2B', positive: true },
+      { label: 'Stil', before: '', after: 'Seriös & Klar', delta: 'Strukturiert', positive: true },
+    ],
+    testimonial: {
+      quote:
+        'Legal und Compliance ist eine hochpreisige Nische mit grossem Bedarf an professionellem Webdesign. Dieses Demo zeigt unsere Kompetenz in diesem Bereich.',
+      author: 'Studio100',
+      role: 'Demo-Projekt · Legal & Digital',
+      initials: 'S1',
+    },
+    accentColor: 'from-blue-500/20 to-blue-500/5',
+  },
 ];
 
-export const industries: Array<Industry | 'Alle'> = ['Alle', 'Bau', 'Sanitär', 'Dachdecker', 'Elektro'];
+export const industries: Array<Industry | 'Alle'> = [
+  'Alle',
+  'Fintech',
+  'Coaching',
+  'Gastronomie',
+  'Health & SaaS',
+  'Legal & Digital',
+];
