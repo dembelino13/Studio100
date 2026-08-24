@@ -1,0 +1,19 @@
+{
+  "permissions": {
+    "allow": [
+      "WebFetch(domain:www.studio-100.de)",
+      "Bash(curl -s -L -A \"Mozilla/5.0 \\(Windows NT 10.0; Win64; x64\\) AppleWebKit/537.36 \\(KHTML, like Gecko\\) Chrome/120.0.0.0 Safari/537.36\" \"https://www.studio-100.de\")",
+      "Bash(curl -s -L \"https://www.studio-100.de/assets/index-CU5YA1cQ.css\")",
+      "Bash(curl -s -L \"https://www.studio-100.de/assets/index-6S5J8kC9.js\")",
+      "Bash(grep -oP '\"[^\"]{10,200}\"')",
+      "Bash(curl -s -L \"https://www.studio-100.de/assets/index-6S5J8kC9.js\" -o /tmp/studio100.js)",
+      "Read(//tmp/**)",
+      "Bash(grep -oP '\"[^\"]{20,400}\"' /tmp/studio100.js)",
+      "Bash(grep -oE '#[0-9a-fA-F]{3,8}|rgb\\\\\\([^\\)]+\\\\\\)|hsl\\\\\\([^\\)]+\\\\\\)')",
+      "Bash(grep -oP '\"\\([^\"]{30,500}\\)\"' /tmp/studio100.js)",
+      "Bash(grep -oE '#[0-9a-fA-F]{3,8}')",
+      "Bash(grep -oP '\"[^\"]{10,100}\"' /tmp/studio100.js)",
+      "PowerShell(Start-Process \"C:\\\\Users\\\\demia\\\\studio100-cinematic\\\\brand-card.html\")"
+    ]
+  }
+}

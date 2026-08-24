@@ -1,0 +1,616 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Studio100 — Brand Card</title>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500;600&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --black:    #0a0a0a;
+      --surface:  #111111;
+      --surface2: #1a1a1a;
+      --border:   #2a2a2a;
+      --text:     #f0f0f0;
+      --muted:    rgba(240,240,240,0.45);
+      --accent:   #d4ff5c;
+      --blue:     #2563EB;
+      --green:    #4ADE80;
+      --gold:     #c9a96e;
+      --red:      #ef4444;
+    }
+
+    body {
+      background: var(--black);
+      color: var(--text);
+      font-family: 'Inter', sans-serif;
+      min-height: 100vh;
+      padding: 2rem;
+    }
+
+    /* ── Header ── */
+    .header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 3rem;
+      padding-bottom: 1.5rem;
+      border-bottom: 1px solid var(--border);
+    }
+    .header-left { display: flex; align-items: center; gap: 1rem; }
+    .logo-badge {
+      width: 48px; height: 48px;
+      background: var(--accent);
+      border-radius: 10px;
+      display: flex; align-items: center; justify-content: center;
+      font-family: 'Syne', sans-serif;
+      font-weight: 800;
+      font-size: 1rem;
+      color: var(--black);
+      letter-spacing: -0.5px;
+    }
+    .header h1 {
+      font-family: 'Syne', sans-serif;
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: var(--text);
+    }
+    .header p { color: var(--muted); font-size: 0.85rem; margin-top: 2px; }
+    .badge {
+      background: var(--surface2);
+      border: 1px solid var(--border);
+      color: var(--muted);
+      font-size: 0.75rem;
+      padding: 0.3rem 0.7rem;
+      border-radius: 999px;
+      font-family: 'JetBrains Mono', monospace;
+    }
+
+    /* ── Grid ── */
+    .grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+    }
+    .grid-3 {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 1.5rem;
+    }
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 1.75rem;
+    }
+    .card-label {
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--muted);
+      font-weight: 600;
+      margin-bottom: 1.25rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .card-label::before {
+      content: '';
+      display: inline-block;
+      width: 4px; height: 14px;
+      background: var(--accent);
+      border-radius: 2px;
+    }
+
+    /* ── Color Palette ── */
+    .palette { grid-column: span 2; }
+    .swatches {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+    .swatch {
+      flex: 1;
+      min-width: 100px;
+    }
+    .swatch-color {
+      height: 80px;
+      border-radius: 10px;
+      border: 1px solid rgba(255,255,255,0.06);
+      margin-bottom: 0.6rem;
+      position: relative;
+      overflow: hidden;
+    }
+    .swatch-color.accent-glow::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at 50% 50%, rgba(212,255,92,0.25) 0%, transparent 70%);
+    }
+    .swatch-name {
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 2px;
+    }
+    .swatch-hex {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.72rem;
+      color: var(--muted);
+    }
+    .swatch-role {
+      font-size: 0.68rem;
+      color: var(--muted);
+      margin-top: 2px;
+      opacity: 0.7;
+    }
+
+    /* ── Typography ── */
+    .font-preview { margin-bottom: 1.25rem; padding-bottom: 1.25rem; border-bottom: 1px solid var(--border); }
+    .font-preview:last-child { margin-bottom: 0; padding-bottom: 0; border-bottom: none; }
+    .font-label {
+      font-size: 0.68rem;
+      font-family: 'JetBrains Mono', monospace;
+      color: var(--accent);
+      margin-bottom: 0.4rem;
+    }
+    .font-sample-syne {
+      font-family: 'Syne', sans-serif;
+      font-size: 1.8rem;
+      font-weight: 800;
+      line-height: 1.1;
+      letter-spacing: -0.04em;
+      color: var(--text);
+    }
+    .font-sample-dm {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 1rem;
+      font-weight: 400;
+      line-height: 1.6;
+      color: var(--muted);
+      margin-top: 0.3rem;
+    }
+    .font-sample-inter {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.9rem;
+      font-weight: 500;
+      color: var(--muted);
+      margin-top: 0.3rem;
+    }
+    .font-sample-mono {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.85rem;
+      color: var(--accent);
+      opacity: 0.8;
+    }
+
+    /* ── Brand Summary ── */
+    .summary p {
+      font-size: 0.95rem;
+      line-height: 1.7;
+      color: var(--muted);
+    }
+    .summary p + p { margin-top: 0.8rem; }
+    .highlight { color: var(--text); font-weight: 500; }
+
+    /* ── Stats ── */
+    .stats-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+    }
+    .stat {
+      background: var(--surface2);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 1rem;
+    }
+    .stat-value {
+      font-family: 'Syne', sans-serif;
+      font-size: 1.6rem;
+      font-weight: 800;
+      color: var(--accent);
+      line-height: 1;
+      margin-bottom: 0.25rem;
+    }
+    .stat-label {
+      font-size: 0.75rem;
+      color: var(--muted);
+    }
+
+    /* ── Services ── */
+    .service-list { list-style: none; }
+    .service-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.65rem;
+      padding: 0.65rem 0;
+      border-bottom: 1px solid var(--border);
+      font-size: 0.88rem;
+      color: var(--muted);
+    }
+    .service-list li:last-child { border-bottom: none; }
+    .service-list li::before {
+      content: '→';
+      color: var(--accent);
+      font-size: 0.9rem;
+      margin-top: 1px;
+      flex-shrink: 0;
+    }
+    strong { color: var(--text); font-weight: 600; }
+
+    /* ── Hero Headline ── */
+    .headline-section { grid-column: span 2; }
+    .hero-headline {
+      font-family: 'Syne', sans-serif;
+      font-size: 2.8rem;
+      font-weight: 800;
+      line-height: 1.05;
+      letter-spacing: -0.04em;
+      margin-bottom: 1rem;
+    }
+    .hero-headline .accent-word { color: var(--accent); }
+    .taglines { display: flex; flex-direction: column; gap: 0.6rem; margin-top: 1.25rem; }
+    .tagline-option {
+      background: var(--surface2);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 0.7rem 1rem;
+      font-size: 0.9rem;
+      color: var(--muted);
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+    .tagline-option.primary {
+      border-color: var(--accent);
+      color: var(--text);
+      background: rgba(212,255,92,0.05);
+    }
+    .tagline-option .tag-label {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.65rem;
+      color: var(--accent);
+      opacity: 0.8;
+      min-width: 60px;
+    }
+
+    /* ── Animation Concepts ── */
+    .anim-section { grid-column: span 2; }
+    .anim-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1rem; }
+    .anim-card {
+      background: var(--surface2);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.25rem;
+      transition: border-color 0.2s;
+    }
+    .anim-card:hover { border-color: var(--accent); }
+    .anim-emoji { font-size: 1.8rem; margin-bottom: 0.75rem; }
+    .anim-title {
+      font-family: 'Syne', sans-serif;
+      font-weight: 700;
+      font-size: 0.95rem;
+      margin-bottom: 0.5rem;
+      color: var(--text);
+    }
+    .anim-desc {
+      font-size: 0.8rem;
+      color: var(--muted);
+      line-height: 1.5;
+    }
+    .anim-badge {
+      display: inline-block;
+      margin-top: 0.65rem;
+      background: rgba(212,255,92,0.12);
+      color: var(--accent);
+      font-size: 0.67rem;
+      font-family: 'JetBrains Mono', monospace;
+      padding: 0.2rem 0.5rem;
+      border-radius: 4px;
+    }
+
+    /* ── Audience & Tone ── */
+    .tag-list { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 0.5rem; }
+    .tag {
+      background: var(--surface2);
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      font-size: 0.77rem;
+      padding: 0.3rem 0.75rem;
+      color: var(--muted);
+    }
+    .tag.accent { border-color: rgba(212,255,92,0.3); color: var(--accent); background: rgba(212,255,92,0.06); }
+
+    /* ── Tone ── */
+    .tone-line {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      padding: 0.5rem 0;
+      font-size: 0.85rem;
+      color: var(--muted);
+      border-bottom: 1px solid var(--border);
+    }
+    .tone-line:last-child { border-bottom: none; }
+    .tone-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--accent); flex-shrink: 0; }
+
+    /* ── Footer ── */
+    .footer {
+      margin-top: 2rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .footer p { font-size: 0.8rem; color: var(--muted); }
+    .approve-btn {
+      background: var(--accent);
+      color: var(--black);
+      font-family: 'Syne', sans-serif;
+      font-weight: 700;
+      font-size: 0.9rem;
+      padding: 0.65rem 1.5rem;
+      border-radius: 8px;
+      border: none;
+      cursor: pointer;
+      transition: opacity 0.15s;
+    }
+    .approve-btn:hover { opacity: 0.88; }
+
+    section-divider {
+      display: block;
+      font-family: 'Syne', sans-serif;
+      font-size: 0.65rem;
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+      color: var(--muted);
+      margin: 2.5rem 0 1.25rem;
+      opacity: 0.5;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <div class="header">
+    <div class="header-left">
+      <div class="logo-badge">S100</div>
+      <div>
+        <h1>Studio100 — Brand Card</h1>
+        <p>Cinematic Site Build · Step 1 of 4 · Brand Analysis</p>
+      </div>
+    </div>
+    <div class="badge">studio-100.de · June 2026</div>
+  </div>
+
+  <!-- Row 1: Color Palette (full width) -->
+  <div class="card palette" style="margin-bottom:1.5rem;">
+    <div class="card-label">Color Palette</div>
+    <div class="swatches">
+      <div class="swatch">
+        <div class="swatch-color" style="background:#0a0a0a;"></div>
+        <div class="swatch-name">Black</div>
+        <div class="swatch-hex">#0a0a0a</div>
+        <div class="swatch-role">Primary background</div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-color" style="background:#111111;"></div>
+        <div class="swatch-name">Surface</div>
+        <div class="swatch-hex">#111111</div>
+        <div class="swatch-role">Cards, sections</div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-color" style="background:#1a1a1a; border:1px solid #2a2a2a;"></div>
+        <div class="swatch-name">Surface 2</div>
+        <div class="swatch-hex">#1a1a1a</div>
+        <div class="swatch-role">Nested elements</div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-color accent-glow" style="background:#d4ff5c;"></div>
+        <div class="swatch-name">Lime Accent</div>
+        <div class="swatch-hex">#d4ff5c</div>
+        <div class="swatch-role">CTAs, highlights</div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-color" style="background:#c9a96e;"></div>
+        <div class="swatch-name">Gold</div>
+        <div class="swatch-hex">#c9a96e</div>
+        <div class="swatch-role">Premium accents</div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-color" style="background:#f0f0f0;"></div>
+        <div class="swatch-name">Text White</div>
+        <div class="swatch-hex">#f0f0f0</div>
+        <div class="swatch-role">Headlines, body</div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-color" style="background:rgba(240,240,240,0.45);"></div>
+        <div class="swatch-name">Muted</div>
+        <div class="swatch-hex">rgba(240,240,240,.45)</div>
+        <div class="swatch-role">Secondary text</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Row 2: 2-col grid -->
+  <div class="grid" style="margin-bottom:1.5rem;">
+
+    <!-- Typography -->
+    <div class="card">
+      <div class="card-label">Typography</div>
+
+      <div class="font-preview">
+        <div class="font-label">Display — Syne 800 (Cinematic Headlines)</div>
+        <div class="font-sample-syne">Websites<br>die verkaufen.</div>
+      </div>
+
+      <div class="font-preview">
+        <div class="font-label">Body — DM Sans 400 (Body copy)</div>
+        <div class="font-sample-dm">Mehr Anfragen. Mehr Umsatz.<br>Messbare Ergebnisse – garantiert.</div>
+      </div>
+
+      <div class="font-preview">
+        <div class="font-label">UI — Inter 500 (Labels, nav)</div>
+        <div class="font-sample-inter">Conversion Rate · SEO · Tracking</div>
+      </div>
+
+      <div class="font-preview">
+        <div class="font-label">Mono — JetBrains Mono (Data, stats)</div>
+        <div class="font-sample-mono">+184% Anfragen · CHF 3.000 →</div>
+      </div>
+    </div>
+
+    <!-- Brand Summary + Stats -->
+    <div class="card">
+      <div class="card-label">Brand Summary</div>
+      <div class="summary" style="margin-bottom:1.5rem;">
+        <p>
+          <span class="highlight">Studio100</span> ist eine Webdesign-Agentur aus Zug, Schweiz, gegründet von Demian Schläpfer. Ihr Fokus liegt ausschliesslich auf hochkonvertierenden Websites für KMUs in der DACH-Region — Ergebnisse stehen über Ästhetik.
+        </p>
+        <p>
+          Mit über <span class="highlight">100+ realisierten Projekten</span> liefert Studio100 ein vollständiges System: Strategie, Design, Copywriting, SEO und Tracking — inklusive Performance-Garantie. Kein gewöhnliches Webdesign, sondern ein digitales Verkaufssystem.
+        </p>
+      </div>
+
+      <div class="card-label" style="margin-top:1rem;">Key Metrics</div>
+      <div class="stats-grid">
+        <div class="stat">
+          <div class="stat-value">+184%</div>
+          <div class="stat-label">mehr qualifizierte Anfragen</div>
+        </div>
+        <div class="stat">
+          <div class="stat-value">+211%</div>
+          <div class="stat-label">höhere Conversion-Rate</div>
+        </div>
+        <div class="stat">
+          <div class="stat-value">100+</div>
+          <div class="stat-label">realisierte Projekte</div>
+        </div>
+        <div class="stat">
+          <div class="stat-value">4–8W</div>
+          <div class="stat-label">vom Brief bis Launch</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Row 3: Services + Audience + Tone -->
+  <div class="grid-3" style="margin-bottom:1.5rem;">
+
+    <!-- Services -->
+    <div class="card">
+      <div class="card-label">Key Services</div>
+      <ul class="service-list">
+        <li><span><strong>Conversion Website System</strong> — Vollpaket inkl. Strategie, Design, Copy, SEO, Tracking</span></li>
+        <li><span><strong>Landing Pages</strong> — Fokussierte Seiten für Kampagnen &amp; Ads</span></li>
+        <li><span><strong>Conversion Rate Optimierung</strong> — Mehr aus bestehendem Traffic</span></li>
+        <li><span><strong>Website-Analyse</strong> — Diagnose &amp; Priorisierung</span></li>
+      </ul>
+    </div>
+
+    <!-- Target Audience -->
+    <div class="card">
+      <div class="card-label">Target Audience</div>
+      <p style="font-size:0.85rem;color:var(--muted);line-height:1.6;margin-bottom:1rem;">
+        Kleine und mittelständische Unternehmen (KMUs) in der <strong>DACH-Region</strong>, besonders aus Bau, Handwerk und Dienstleistung — die eine echte Verkaufsmaschine statt einer digitalen Visitenkarte wollen.
+      </p>
+      <div class="tag-list">
+        <span class="tag accent">KMU · DACH</span>
+        <span class="tag">Handwerk &amp; Bau</span>
+        <span class="tag">Dienstleister</span>
+        <span class="tag">B2B &amp; B2C</span>
+        <span class="tag">Schweiz · DE · AT</span>
+        <span class="tag">Ab CHF 3.000</span>
+      </div>
+    </div>
+
+    <!-- Tone & Voice -->
+    <div class="card">
+      <div class="card-label">Tone &amp; Voice</div>
+      <div class="tone-line"><div class="tone-dot"></div> Direkt und ergebnisorientiert</div>
+      <div class="tone-line"><div class="tone-dot"></div> Kein Agentur-Kauderwelsch</div>
+      <div class="tone-line"><div class="tone-dot"></div> Zahlen und Beweise statt Versprechen</div>
+      <div class="tone-line"><div class="tone-dot"></div> Persönlich, swiss-deutsch präzise</div>
+      <div class="tone-line"><div class="tone-dot"></div> Premium ohne Arroganz</div>
+      <div class="tone-line"><div class="tone-dot"></div> "Ergebnisse über Ästhetik"</div>
+    </div>
+
+  </div>
+
+  <!-- Row 4: Hero Headline (full width) -->
+  <div class="card headline-section" style="margin-bottom:1.5rem;">
+    <div class="card-label">Suggested Hero Headline</div>
+    <div class="hero-headline">
+      Ihre Website.<br>
+      Ihr <span class="accent-word">Umsatztreiber.</span>
+    </div>
+    <p style="font-size:0.95rem;color:var(--muted);line-height:1.6;margin-bottom:1.5rem;max-width:600px;">
+      Hochkonvertierende Websites für KMUs — mehr Anfragen, mehr Aufträge, messbare Ergebnisse. Performance-Garantie inklusive.
+    </p>
+    <div class="card-label">Tagline Options</div>
+    <div class="taglines">
+      <div class="tagline-option primary">
+        <span class="tag-label">PRIMARY</span>
+        "Websites, die verkaufen — nicht nur beeindrucken."
+      </div>
+      <div class="tagline-option">
+        <span class="tag-label">ALT 1</span>
+        "Kein Design. Ein System. Ihre Anfragen verdreifachen."
+      </div>
+      <div class="tagline-option">
+        <span class="tag-label">ALT 2</span>
+        "Während Ihre Konkurrenz eine schöne Website hat, haben Sie eine, die verkauft."
+      </div>
+    </div>
+  </div>
+
+  <!-- Row 5: Animation Concepts (full width) -->
+  <div class="card anim-section" style="margin-bottom:2rem;">
+    <div class="card-label">Hero Animation Concepts</div>
+    <div class="anim-grid">
+
+      <div class="anim-card">
+        <div class="anim-emoji">🌑</div>
+        <div class="anim-title">Dark Precision Drift</div>
+        <div class="anim-desc">
+          Cinematic slow-push into a dark premium workspace — MacBook on a minimalist Zug desk, side-lit with cold precision light. Subtle fog/dust particles drifting through a beam of light. Counter numbers tick up as the camera moves forward. Seamless loop.
+        </div>
+        <span class="anim-badge">Kling v3 · 5s loop</span>
+      </div>
+
+      <div class="anim-card">
+        <div class="anim-emoji">⚡</div>
+        <div class="anim-title">Data Pulse Hero</div>
+        <div class="anim-desc">
+          Split-screen: left is a before (dull, empty website), right is the Studio100 version with glowing metrics. The dividing line between them slides right like a wipe as you scroll, revealing the transformation. Lime accent light pulses on CTAs.
+        </div>
+        <span class="anim-badge">CSS Scroll · GSAP</span>
+      </div>
+
+      <div class="anim-card">
+        <div class="anim-emoji">🏔️</div>
+        <div class="anim-title">Swiss Alpine Luxury</div>
+        <div class="anim-desc">
+          Aerial drone shot gliding over snow-capped Alps at golden hour, then seamlessly cutting into a dark architectural interior in Zug. The contrast of natural grandeur and precision craft mirrors the Studio100 promise: Swiss quality, results-driven focus.
+        </div>
+        <span class="anim-badge">Kling v3 · cinematic</span>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <div class="footer">
+    <p>Step 1 complete · studio-100.de brand analysis · Waiting for approval to proceed to Step 2 (Scene Generation)</p>
+    <button class="approve-btn" onclick="this.textContent='✓ Approved — proceeding to Step 2'; this.style.background='#4ADE80'">
+      Approve &amp; Continue to Step 2
+    </button>
+  </div>
+
+</body>
+</html>
