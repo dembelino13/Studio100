@@ -129,7 +129,27 @@ const Datenschutz: React.FC = () => {
 
             {/* 7 */}
             <div>
-              <h2 className="text-xl font-semibold text-neutral-900 mb-3">7. Cookies und Tracking</h2>
+              <h2 className="text-xl font-semibold text-neutral-900 mb-3">7. KI-gestützte Inhalte und Datenverarbeitung</h2>
+              <p>
+                Für die Erstellung von Marketinginhalten (z. B. Social-Media-Beiträge, personalisierte
+                Nachrichten) nutzen wir KI-gestützte Werkzeuge (Anthropic Claude API). Diese Inhalte werden
+                vor Veröffentlichung von uns redaktionell geprüft und freigegeben – es erfolgt keine
+                automatisierte, ungeprüfte Veröffentlichung.
+              </p>
+              <p className="mt-3">
+                Im Rahmen dieser Verarbeitung können personenbezogene Daten (z. B. öffentlich zugängliche
+                Website- oder Unternehmensinformationen) an Anthropic, PBC (USA) übermittelt werden. Die
+                Übermittlung erfolgt auf Grundlage geeigneter Garantien (Standardvertragsklauseln der
+                EU-Kommission). Weitere Informationen zur Datenverarbeitung durch Anthropic finden Sie unter{' '}
+                <a href="https://www.anthropic.com/legal/privacy" target="_blank" rel="noopener noreferrer" className="underline hover:no-underline">
+                  anthropic.com/legal/privacy
+                </a>.
+              </p>
+            </div>
+
+            {/* 8 */}
+            <div>
+              <h2 className="text-xl font-semibold text-neutral-900 mb-3">8. Cookies und Tracking</h2>
               <p>
                 Unsere Website verwendet Cookies und ähnliche Technologien. Sie können Ihre Cookie-Einstellungen
                 jederzeit über den Cookie-Banner auf unserer Website anpassen. Folgende Kategorien werden eingesetzt:
@@ -141,9 +161,9 @@ const Datenschutz: React.FC = () => {
               </ul>
             </div>
 
-            {/* 8 */}
+            {/* 9 */}
             <div>
-              <h2 className="text-xl font-semibold text-neutral-900 mb-3">8. Ihre Rechte</h2>
+              <h2 className="text-xl font-semibold text-neutral-900 mb-3">9. Ihre Rechte</h2>
               <p>Sie haben folgende Rechte bezüglich Ihrer Personendaten:</p>
               <ul className="mt-3 space-y-2 list-disc list-inside">
                 <li><strong>Auskunftsrecht:</strong> Information über die über Sie gespeicherten Daten</li>
@@ -162,9 +182,9 @@ const Datenschutz: React.FC = () => {
               </p>
             </div>
 
-            {/* 9 */}
+            {/* 10 */}
             <div>
-              <h2 className="text-xl font-semibold text-neutral-900 mb-3">9. Beschwerderecht</h2>
+              <h2 className="text-xl font-semibold text-neutral-900 mb-3">10. Beschwerderecht</h2>
               <p>
                 Sie haben das Recht, eine Beschwerde bei der zuständigen Datenschutzbehörde einzureichen.
                 In der Schweiz ist dies der Eidgenössische Datenschutz- und Öffentlichkeitsbeauftragte (EDÖB),
@@ -172,18 +192,18 @@ const Datenschutz: React.FC = () => {
               </p>
             </div>
 
-            {/* 10 */}
+            {/* 11 */}
             <div>
-              <h2 className="text-xl font-semibold text-neutral-900 mb-3">10. Datensicherheit</h2>
+              <h2 className="text-xl font-semibold text-neutral-900 mb-3">11. Datensicherheit</h2>
               <p>
                 Wir setzen technische und organisatorische Massnahmen ein, um Ihre Daten vor unbefugtem
                 Zugriff, Verlust oder Missbrauch zu schützen. Die Übertragung erfolgt verschlüsselt via SSL/TLS.
               </p>
             </div>
 
-            {/* 11 */}
+            {/* 12 */}
             <div>
-              <h2 className="text-xl font-semibold text-neutral-900 mb-3">11. Änderungen dieser Datenschutzerklärung</h2>
+              <h2 className="text-xl font-semibold text-neutral-900 mb-3">12. Änderungen dieser Datenschutzerklärung</h2>
               <p>
                 Wir behalten uns vor, diese Datenschutzerklärung bei Bedarf anzupassen. Die aktuelle Version
                 ist stets auf dieser Seite abrufbar.
