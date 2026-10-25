@@ -8,7 +8,7 @@ const points = [
   'Klare Wege zur Anfrage: anrufen, Offerte anfragen oder Formular ausfüllen',
 ];
 
-const PositioningSection: React.FC = () => {
+const ElektrikerSection: React.FC = () => {
   return (
     <section id="ueber" className="py-20 sm:py-28 lg:py-36 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-10">
@@ -67,4 +67,4 @@ const PositioningSection: React.FC = () => {
   );
 };
 
-export default PositioningSection;
+export default ElektrikerSection;

@@ -7,6 +7,7 @@ export const MWST_HINWEIS = 'exkl. MWST';
 
 export const LINKS = {
   digitalCheck: 'https://check.studio-100.de/digital-check',
+  websiteCheckApi: 'https://check.studio-100.de/api/website-check', // Website-Check -> Lead im CRM (Herkunft „Website-Check“)
   gespraech: 'https://calendly.com/demian-schlaepfer/30min-austausch', // Calendly "Verkaufsgespräch"
   email: 'demian@studio-100.de',
 };

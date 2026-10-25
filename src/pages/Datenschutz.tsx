@@ -60,7 +60,8 @@ const Datenschutz: React.FC = () => {
               <p>Wir erheben folgende Kategorien von Personendaten:</p>
               <ul className="mt-3 space-y-2 list-disc list-inside">
                 <li><strong>Kontaktdaten:</strong> Name, E-Mail-Adresse, Telefonnummer, Unternehmensname</li>
-                <li><strong>Projektdaten:</strong> Website-Link, Projektbeschreibung, Budget, gewünschter Startzeitpunkt</li>
+                <li><strong>Projektdaten:</strong> Website-Link, Projektbeschreibung, gewünschter Startzeitpunkt</li>
+                <li><strong>Website-Check:</strong> die eingegebene Website-Adresse und das Prüfergebnis; freiwillig Firma, Name, E-Mail und Telefon, wenn Sie einen ausführlichen Digital-Check anfordern. Die Prüfung läuft auf unserem System check.studio-100.de; die Angaben werden in unserem Kundenverwaltungssystem (CRM) gespeichert, um Sie bei Interesse zu beraten.</li>
                 <li><strong>Technische Daten:</strong> IP-Adresse, Browser-Typ, Betriebssystem, Seitenaufrufe</li>
                 <li><strong>Nutzungsdaten:</strong> Verhalten auf der Website, Klickpfade, Verweildauer</li>
               </ul>
@@ -111,6 +112,7 @@ const Datenschutz: React.FC = () => {
                   { name: 'Resend Inc.', location: 'USA', purpose: 'Versand von E-Mail-Benachrichtigungen', link: 'https://resend.com/legal/privacy-policy' },
                   { name: 'GoDaddy Inc.', location: 'USA', purpose: 'Domain-Verwaltung', link: 'https://www.godaddy.com/legal/agreements/privacy-policy' },
                   { name: 'Calendly LLC', location: 'USA', purpose: 'Terminbuchung und -verwaltung', link: 'https://calendly.com/legal/privacy-notice' },
+                  { name: 'Supabase Inc.', location: 'USA/EU', purpose: 'Datenbank unseres CRM (Website-Check, Anfragen)', link: 'https://supabase.com/privacy' },
                 ].map((provider, i) => (
                   <div key={i} className="p-4 rounded-xl bg-neutral-50 border border-neutral-200">
                     <p className="font-medium text-neutral-900">{provider.name}</p>

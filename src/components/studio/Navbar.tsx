@@ -3,7 +3,7 @@ import { Menu, X } from 'lucide-react';
 import { Link, useNavigate, useLocation } from 'react-router-dom';
 import { LINKS } from '@/data/angebot';
 
-const SECTIONS: [string, string][] = [['offer', 'Angebot'], ['betreuung', 'Betreuung'], ['garantie', 'Garantie'], ['faq', 'FAQ']];
+const SECTIONS: [string, string][] = [['calculator', 'Rechner'], ['analysis', 'Website-Check'], ['offer', 'Angebot'], ['betreuung', 'Betreuung'], ['garantie', 'Garantie'], ['faq', 'FAQ']];
 
 const Navbar: React.FC = () => {
   const [scrolled, setScrolled] = useState(false);

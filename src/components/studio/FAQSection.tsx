@@ -33,6 +33,10 @@ export const faqs = [
     answer: 'Eine kurze Auswertung, wie Ihr Betrieb heute online dasteht: Website, Handy-Ansicht, Google-Profil und Auffindbarkeit. Sie erhalten das Ergebnis als PDF – kostenlos und unverbindlich.',
   },
   {
+    question: 'Was ist der Unterschied zwischen Website-Check und Digital-Check?',
+    answer: 'Der Website-Check auf dieser Seite prüft Ihre Website sofort automatisch (Kontaktwege, Stellenseite, Handy-Tempo, Sicherheit, Pflichtangaben). Beim Digital-Check schauen wir uns Ihren Betrieb persönlich an und schicken Ihnen eine ausführliche Auswertung mit den drei grössten Hebeln.',
+  },
+  {
     question: 'Sind die Preise inklusive Mehrwertsteuer?',
     answer: 'Nein, alle Preise verstehen sich in CHF exklusive MWST (8.1 %).',
   },

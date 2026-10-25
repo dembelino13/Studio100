@@ -1,5 +1,5 @@
 import React from 'react';
-import { ShieldCheck } from 'lucide-react';
+import { ShieldCheck, KeyRound, LifeBuoy } from 'lucide-react';
 import { GARANTIE } from '@/data/angebot';
 
 const GuaranteeSection: React.FC = () => {
@@ -22,6 +22,22 @@ const GuaranteeSection: React.FC = () => {
                 Sie liefern Logo, Fotos und Stichworte – wir kümmern uns um den Rest. Ist die Website nicht rechtzeitig online, tragen wir das Risiko.
               </p>
             </div>
+          </div>
+        </div>
+        <div className="mt-6 grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div className="p-7 sm:p-9 rounded-3xl bg-white border border-neutral-200">
+            <div className="w-12 h-12 rounded-xl bg-neutral-900 flex items-center justify-center mb-6"><KeyRound size={20} className="text-white" /></div>
+            <h3 className="text-xl sm:text-2xl font-semibold tracking-tight text-neutral-900">Ihr Eigentum</h3>
+            <p className="mt-3 text-[15px] text-neutral-600 leading-relaxed">
+              Domain, Hosting und Code laufen auf Ihren Namen. Sie sind an nichts gebunden und können die Website jederzeit mitnehmen.
+            </p>
+          </div>
+          <div className="p-7 sm:p-9 rounded-3xl bg-white border border-neutral-200">
+            <div className="w-12 h-12 rounded-xl bg-neutral-900 flex items-center justify-center mb-6"><LifeBuoy size={20} className="text-white" /></div>
+            <h3 className="text-xl sm:text-2xl font-semibold tracking-tight text-neutral-900">Nach dem Go-Live sind wir dabei</h3>
+            <p className="mt-3 text-[15px] text-neutral-600 leading-relaxed">
+              Updates, Sicherheit und Anpassungen übernehmen wir in der Betreuung – Sie konzentrieren sich auf Ihre Aufträge.
+            </p>
           </div>
         </div>
       </div>
