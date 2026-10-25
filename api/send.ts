@@ -13,7 +13,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
   try {
     await resend.emails.send({
       from: 'Studio100 <noreply@studio-100.de>',
-      to: 'schlaepfer.demian@gmail.com',
+      to: 'demian@studio-100.de',
       subject: `Neue Projektanfrage von ${name}`,
       html: `
         <h2>Neue Projektanfrage – Studio100</h2>

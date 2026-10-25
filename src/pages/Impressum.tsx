@@ -1,9 +1,10 @@
 import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowLeft, Mail, MapPin, User, Globe } from 'lucide-react';
+import { ArrowLeft, Mail, MapPin, User, Globe, Hash } from 'lucide-react';
 import Navbar from '@/components/studio/Navbar';
 import Footer from '@/components/studio/Footer';
 import SEO from '@/components/SEO';
+import { FIRMA, LINKS } from '@/data/angebot';
 
 interface RowProps {
   icon: React.ReactNode;
@@ -34,7 +35,7 @@ const Impressum: React.FC = () => {
     <div className="min-h-screen bg-white text-neutral-900 flex flex-col">
       <SEO
         title="Impressum | Studio100 Webdesign"
-        description="Impressum von Studio100 – Rosiello Solutions GmbH, Gotthardstrasse 14, 6300 Zug, Schweiz. Rechtliche Angaben gemäss § 5 TMG und ECG."
+        description="Impressum von Studio100 – Rosiello Solutions GmbH, Gotthardstrasse 14, 6300 Zug, Schweiz. Studio100 ist eine Marke der Rosiello Solutions GmbH."
         canonical="/impressum"
         noindex={true}
       />
@@ -58,36 +59,28 @@ const Impressum: React.FC = () => {
           <div className="mt-12 space-y-8 text-[15px] text-neutral-700 leading-relaxed">
 
             <div>
-              <h2 className="text-xl font-semibold text-neutral-900 mb-4">
-                Angaben gemäss § 5 TMG / ECG
-              </h2>
-              <div className="p-8 rounded-3xl border border-neutral-200 bg-neutral-50/50 space-y-6">
-                <Row icon={<User size={16} />} label="Inhaber">
-                  Rosiello Solutions GmbH
+              <h2 className="text-xl font-semibold text-neutral-900 mb-4">Angaben zum Anbieter</h2>
+              <div className="p-6 sm:p-8 rounded-3xl border border-neutral-200 bg-neutral-50/50 space-y-6">
+                <Row icon={<User size={16} />} label="Betreiberin">
+                  {FIRMA.name}
                 </Row>
-                <Row icon={<span className="font-bold text-sm">S</span>} label="Firma">
-                  Studio100
+                <Row icon={<span className="font-bold text-sm">S</span>} label="Marke">
+                  {FIRMA.markenZusatz}.
                 </Row>
                 <Row icon={<MapPin size={16} />} label="Adresse">
-                  Gotthardstrasse 14<br />
-                  6300 Zug<br />
-                  Schweiz
+                  {FIRMA.strasse}<br />
+                  {FIRMA.plzOrt}<br />
+                  {FIRMA.land}
+                </Row>
+                <Row icon={<Hash size={16} />} label="Unternehmens-Identifikation">
+                  UID {FIRMA.uid}<br />
+                  MWST-Nr. {FIRMA.mwstNr}
                 </Row>
                 <Row icon={<Mail size={16} />} label="E-Mail">
-                  <a
-                    href="mailto:schlaepfer.demian@gmail.com"
-                    className="text-neutral-900 hover:underline"
-                  >
-                    schlaepfer.demian@gmail.com
-                  </a>
+                  <a href={`mailto:${LINKS.email}`} className="text-neutral-900 hover:underline">{LINKS.email}</a>
                 </Row>
                 <Row icon={<Globe size={16} />} label="Website">
-                  <a
-                    href="https://www.studio-100.de"
-                    className="text-neutral-900 hover:underline"
-                  >
-                    www.studio-100.de
-                  </a>
+                  <a href="https://www.studio-100.de" className="text-neutral-900 hover:underline">www.studio-100.de</a>
                 </Row>
               </div>
             </div>
@@ -97,8 +90,7 @@ const Impressum: React.FC = () => {
               <p>
                 Die Inhalte dieser Website wurden mit grösstmöglicher Sorgfalt erstellt. Für die
                 Richtigkeit, Vollständigkeit und Aktualität der Inhalte können wir jedoch keine
-                Gewähr übernehmen. Als Diensteanbieter sind wir gemäss § 7 Abs. 1 TMG für eigene
-                Inhalte auf diesen Seiten nach den allgemeinen Gesetzen verantwortlich.
+                Gewähr übernehmen. Für eigene Inhalte auf diesen Seiten sind wir nach den allgemeinen Gesetzen verantwortlich.
               </p>
             </div>
 
@@ -116,30 +108,13 @@ const Impressum: React.FC = () => {
               <h2 className="text-xl font-semibold text-neutral-900 mb-3">Urheberrecht</h2>
               <p>
                 Die durch die Seitenbetreiber erstellten Inhalte und Werke auf diesen Seiten
-                unterliegen dem deutschen und schweizerischen Urheberrecht. Die Vervielfältigung,
+                unterliegen dem schweizerischen Urheberrecht. Die Vervielfältigung,
                 Bearbeitung, Verbreitung und jede Art der Verwertung ausserhalb der Grenzen des
                 Urheberrechtes bedürfen der schriftlichen Zustimmung des jeweiligen Autors bzw.
                 Erstellers.
               </p>
             </div>
 
-            <div>
-              <h2 className="text-xl font-semibold text-neutral-900 mb-3">Streitschlichtung</h2>
-              <p>
-                Die Europäische Kommission stellt eine Plattform zur Online-Streitbeilegung (OS)
-                bereit:{' '}
-                <a
-                  href="https://ec.europa.eu/consumers/odr"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="underline hover:no-underline"
-                >
-                  https://ec.europa.eu/consumers/odr
-                </a>
-                . Wir sind nicht bereit oder verpflichtet, an Streitbeilegungsverfahren vor einer
-                Verbraucherschlichtungsstelle teilzunehmen.
-              </p>
-            </div>
 
           </div>
 

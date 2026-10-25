@@ -8,8 +8,8 @@ const Index: React.FC = () => {
   return (
     <AppProvider>
       <SEO
-        title="Studio100 – Hochkonvertierende Websites für KMUs | Webdesign DACH"
-        description="Studio100 entwickelt professionelle, hochkonvertierende Websites für kleine und mittelständische Unternehmen in der DACH-Region. Mehr Anfragen, mehr Umsatz – durch strategisches Webdesign aus Zug."
+        title="Studio100 – Websites für Handwerksbetriebe | Aufträge und Fachkräfte"
+        description="Websites für Handwerksbetriebe, die Aufträge und Fachkräfte bringen – gebaut von einem Elektriker. Fixpreis CHF 3'490 exkl. MWST, Termin-Garantie. Kostenloser Digital-Check."
         canonical="/"
       />
       <AppLayout />

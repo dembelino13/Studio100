@@ -20,23 +20,20 @@ const sections: SiteSection[] = [
   {
     title: 'Hauptseiten',
     links: [
-      { label: 'Startseite', href: '/', desc: 'Übersicht, ROI-Rechner, Leistungen, Referenzen und Angebot' },
-      { label: 'Case Studies', href: '/case-studies', desc: 'Alle Kundenprojekte mit messbaren Ergebnissen' },
-      { label: 'Über uns', href: '/ueber-uns', desc: 'Mission, Werte und das Team hinter Studio100' },
+      { label: 'Startseite', href: '/', desc: 'Angebot, Betreuung, Garantie und FAQ' },
+      { label: 'Über mich', href: '/ueber-uns', desc: 'Wer hinter Studio100 steht' },
     ],
   },
   {
     title: 'Leistungen',
     links: [
-      { label: 'Webdesign für KMU', href: '/webdesign-kmu', desc: 'Hochkonvertierende Websites für kleine und mittlere Unternehmen in der DACH-Region' },
-      { label: 'Landing Pages', href: '/landing-page', desc: 'Fokussierte Landing Pages für maximale Conversion-Raten' },
-      { label: 'Conversion-Optimierung', href: '/conversion-optimierung', desc: 'Mehr Anfragen aus bestehendem Traffic durch datenbasierte Optimierung' },
+      { label: 'Handwerker-Website Komplett', href: '/#offer', desc: "Kernpaket CHF 3'490 exkl. MWST oder CHF 249/Monat" },
     ],
   },
   {
     title: 'Blog',
     links: [
-      { label: 'Blog-Übersicht', href: '/blog', desc: 'Alle Artikel zu Webdesign, Conversion und digitalem Wachstum für KMUs' },
+      { label: 'Blog-Übersicht', href: '/blog', desc: 'Artikel zu Websites für Handwerksbetriebe' },
       { label: 'Webdesign Kosten Schweiz 2026', href: '/blog/webdesign-kosten-schweiz-2026', desc: 'Was kostet eine professionelle Website in der Schweiz?' },
       { label: 'Website für Handwerker erstellen lassen', href: '/blog/website-handwerker-erstellen-lassen', desc: 'Der komplette Guide für Handwerksbetriebe' },
       { label: 'Conversion Rate optimieren für KMUs', href: '/blog/conversion-rate-optimieren-kmu', desc: '7 bewährte Strategien für mehr Anfragen' },

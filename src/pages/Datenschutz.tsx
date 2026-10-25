@@ -49,7 +49,7 @@ const Datenschutz: React.FC = () => {
               <div className="mt-3 p-4 rounded-xl bg-neutral-50 border border-neutral-200">
                 <p className="font-medium text-neutral-900">Rosiello Solutions GmbH</p>
                 <p>Adresse: Gotthardstrasse 14, 6300 Zug, Schweiz</p>
-                <p>E-Mail: <a href="mailto:schlaepfer.demian@gmail.com" className="underline hover:no-underline">schlaepfer.demian@gmail.com</a></p>
+                <p>E-Mail: <a href="mailto:demian@studio-100.de" className="underline hover:no-underline">demian@studio-100.de</a></p>
                 <p>Website: <a href="https://www.studio-100.de" className="underline hover:no-underline">www.studio-100.de</a></p>
               </div>
             </div>
@@ -176,8 +176,8 @@ const Datenschutz: React.FC = () => {
               </ul>
               <p className="mt-3">
                 Zur Ausübung Ihrer Rechte wenden Sie sich an:{' '}
-                <a href="mailto:schlaepfer.demian@gmail.com" className="underline hover:no-underline">
-                  schlaepfer.demian@gmail.com
+                <a href="mailto:demian@studio-100.de" className="underline hover:no-underline">
+                  demian@studio-100.de
                 </a>
               </p>
             </div>

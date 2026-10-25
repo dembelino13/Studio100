@@ -3,18 +3,14 @@ import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import { ThemeProvider } from "@/components/theme-provider";
 import { HelmetProvider } from "react-helmet-async";
 import SchemaOrg from "@/components/SchemaOrg";
 import Index from "./pages/Index";
-import CaseStudies from "./pages/CaseStudies";
 import Impressum from "./pages/Impressum";
 import Datenschutz from "./pages/Datenschutz";
 import NotFound from "./pages/NotFound";
-import WebdesignKMU from "./pages/WebdesignKMU";
-import LandingPage from "./pages/LandingPage";
-import ConversionOptimierung from "./pages/ConversionOptimierung";
 import BlogIndex from "./pages/blog/BlogIndex";
 import WebdesignKostenSchweiz from "./pages/blog/WebdesignKostenSchweiz";
 import WebsiteHandwerker from "./pages/blog/WebsiteHandwerker";
@@ -35,12 +31,13 @@ const App = () => (
         <BrowserRouter>
           <Routes>
             <Route path="/" element={<Index />} />
-            <Route path="/case-studies" element={<CaseStudies />} />
+            {/* Alte Angebote/Referenzen (bis 10/2026) -> Startseite */}
+            <Route path="/case-studies" element={<Navigate to="/" replace />} />
             <Route path="/impressum" element={<Impressum />} />
             <Route path="/datenschutz" element={<Datenschutz />} />
-            <Route path="/webdesign-kmu" element={<WebdesignKMU />} />
-            <Route path="/landing-page" element={<LandingPage />} />
-            <Route path="/conversion-optimierung" element={<ConversionOptimierung />} />
+            <Route path="/webdesign-kmu" element={<Navigate to="/#offer" replace />} />
+            <Route path="/landing-page" element={<Navigate to="/#offer" replace />} />
+            <Route path="/conversion-optimierung" element={<Navigate to="/#offer" replace />} />
             <Route path="/blog" element={<BlogIndex />} />
             <Route path="/blog/webdesign-kosten-schweiz-2026" element={<WebdesignKostenSchweiz />} />
             <Route path="/blog/website-handwerker-erstellen-lassen" element={<WebsiteHandwerker />} />

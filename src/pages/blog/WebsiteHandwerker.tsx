@@ -161,7 +161,7 @@ const WebsiteHandwerker: React.FC = () => {
             </div>
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
               {[
-                { label: 'Webdesign für KMU', href: '/webdesign-kmu', desc: 'Unsere Leistung' },
+                { label: 'Handwerker-Website Komplett', href: '/#offer', desc: 'Unser Angebot zum Fixpreis' },
                 { label: 'Webdesign Kosten Schweiz', href: '/blog/webdesign-kosten-schweiz-2026', desc: 'Blog-Artikel' },
                 { label: 'Conversion Rate optimieren', href: '/blog/conversion-rate-optimieren-kmu', desc: 'Blog-Artikel' },
               ].map((item) => (

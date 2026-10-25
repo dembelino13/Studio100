@@ -168,8 +168,7 @@ const ConversionRateKMU: React.FC = () => {
             </div>
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
               {[
-                { label: 'Conversion-Optimierung', href: '/conversion-optimierung', desc: 'Unsere Leistung' },
-                { label: 'Landing Pages erstellen', href: '/landing-page', desc: 'Unsere Leistung' },
+                { label: 'Handwerker-Website Komplett', href: '/#offer', desc: 'Unser Angebot zum Fixpreis' },
                 { label: 'Webdesign Kosten Schweiz', href: '/blog/webdesign-kosten-schweiz-2026', desc: 'Blog-Artikel' },
               ].map((item) => (
                 <Link
